@@ -17,11 +17,9 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply w-full items-center justify-center bg-zinc-900 text-white font-semibold
+}
+
+textarea {
+  @apply bg-transparent outline-none placeholder:text-slate-400 placeholder:text-xl border-none h-24 w-full resize-none
 }
