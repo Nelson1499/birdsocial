@@ -6,7 +6,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline"
 
 export const Interaction = () => {
   return (
-    <div className="flex h-10 w-full items-center">
+    <div className="flex h-10 m-auto w-full items-center">
       <div className="m-auto space-x-20">
         <ChatBubbleOutlineIcon className="text-2xl" />
         <RepeatIcon className="text-2xl" />

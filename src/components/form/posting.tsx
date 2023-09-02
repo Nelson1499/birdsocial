@@ -1,9 +1,30 @@
+"use client"
 import Image from "next/image"
-import image from "../../images/thumb-1920-97962.jpg"
-export const Posting = () => {
+import type { ObjectUser } from "@/types/typesdata"
+import { useRef } from "react"
+import { addNewPost } from "@/actions/add-post"
+import { ButtonPost } from "../posting/button-post"
+
+export const Posting = ({ data }: { data: ObjectUser }) => {
+  const formRef = useRef<HTMLFormElement>(null)
+  const addPost = async (formData: FormData) => {
+    await addNewPost(formData)
+    formRef.current?.reset()
+  }
   return (
-    <form className="flex">
-      <Image className="w-14 h-14 rounded-full" src={image} alt="perfil" />
+    <form
+      ref={formRef}
+      action={addPost}
+      className="flex border-b-2 border-b-white border-opacity-10 py-4 my-2"
+    >
+      <Image
+        priority={true}
+        width={500}
+        height={500}
+        className="w-12 h-12 rounded-full"
+        src={data.avatar_url}
+        alt="perfil"
+      />
       <div className="w-full mx-4">
         <textarea
           maxLength={225}
@@ -11,11 +32,7 @@ export const Posting = () => {
           name="post"
           id="post"
         />
-        <div className="flex justify-end border-t-2 border-white border-opacity-10">
-          <button className="bg-blue-500 rounded-2xl py-2 px-3 my-2">
-            Postear
-          </button>
-        </div>
+        <ButtonPost />
       </div>
     </form>
   )

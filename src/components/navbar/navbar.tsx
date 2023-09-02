@@ -1,5 +1,6 @@
 import FlutterDashIcon from "@mui/icons-material/FlutterDash"
 import { Items } from "@/svg/svg.navbar"
+import { AuthButtonServer } from "../button-auth/authbutton-server"
 
 export const Navbar = () => {
   const items = Items()
@@ -17,6 +18,7 @@ export const Navbar = () => {
           </div>
         </div>
       ))}
+      <AuthButtonServer />
     </div>
   )
 }

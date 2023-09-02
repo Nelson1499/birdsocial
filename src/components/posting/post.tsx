@@ -1,59 +1,33 @@
 import Image from "next/image"
-import image from "../../images/thumb-1920-97962.jpg"
 import { Interaction } from "./interaction"
+import type { RelationPost } from "@/types/typesdata"
 
-export const Post = () => {
-  const array = [
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    },
-    {
-      image,
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe distinctio eos quam! Quas, atque culpa aut harum ipsum quae, ea ullam error quam sint, illo rerum facilis corrupti a?"
-    }
-  ]
-  return array.map((a, i) => (
-    <article key={i} className="border-t-2 border-t-white border-opacity-10">
+export const Post = ({ post }: { post: RelationPost }) => {
+  const { birdtweets, users } = post
+  return (
+    <article className="border-b-2 border-b-white border-opacity-10 py-4 items-center justify-center">
       <div className="flex my-2">
-        <Image className="w-14 h-14 rounded-full" src={a.image} alt="perfil" />
-        <div className="w-full mx-4">
-          <p>{a.content}</p>
+        <Image
+          priority={true}
+          width={500}
+          height={500}
+          className="w-12 h-12 rounded-full"
+          src={users.avatar_url}
+          alt="perfil"
+        />
+        <div className="block mx-2 justify-center item-center">
+          <div className="flex">
+            <h3>{users.name}</h3>
+            <small className="text-gray-300 mx-2">@{users.username}</small>
+          </div>
+          <div className="w-full">
+            <p>{birdtweets}</p>
+          </div>
         </div>
       </div>
-      <Interaction />
+      <div className="w-full justify-center">
+        <Interaction />
+      </div>
     </article>
-  ))
+  )
 }
