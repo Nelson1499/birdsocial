@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "get:types": "npx supabase gen types typescript --project-id dufjrrlimwmdfukfrxoj > ./src/types/database.ts",
+    "gen:types": "npx supabase gen types typescript --project-id dufjrrlimwmdfukfrxoj > ./src/types/database.ts",
     "formatear": "npx eslint --fix src/**/*.*"
   },
   "dependencies": {

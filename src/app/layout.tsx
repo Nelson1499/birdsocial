@@ -18,14 +18,14 @@ export default function RootLayout ({
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body className="flex items-center justify-center h-screen">
-        <div className="mx-10">
-          <div className="w-full h-screen flex my-2">
-            <div className="w-[275px] h-full">
+      <body className="flex items-center justify-center h-screen w-full">
+        <div className="md:mx-10 w-full">
+          <div className="w-full h-screen md:flex my-2 mx-2">
+            <div className="md:w-[275px] h-full hidden md:block">
               <Navbar />
             </div>
-            <div className="flex-1">{children}</div>
-            <div className="w-[450px] h-full border border-blue-400 relative"></div>
+            <div className="">{children}</div>
+            <div className="md:w-[450px] h-full border border-blue-400 relative hidden md:block"></div>
           </div>
         </div>
       </body>

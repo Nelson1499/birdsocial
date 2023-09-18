@@ -2,8 +2,9 @@ import Image from "next/image"
 import { Interaction } from "./interaction"
 import type { RelationPost } from "@/types/typesdata"
 
-export const Post = ({ post }: { post: RelationPost }) => {
-  const { birdtweets, users } = post
+export const Post = ({ post }: { post: RelationPost[] | any }) => {
+  const { birdtweets, users, likes, id, birdretweets, commentbirdtweets } = post as RelationPost
+  // console.log(post)
   return (
     <article className="border-b-2 border-b-white border-opacity-10 py-4 items-center justify-center">
       <div className="flex my-2">
@@ -26,7 +27,7 @@ export const Post = ({ post }: { post: RelationPost }) => {
         </div>
       </div>
       <div className="w-full justify-center">
-        <Interaction />
+        <Interaction data={{ birdretweets, id, likes, commentbirdtweets }} />
       </div>
     </article>
   )

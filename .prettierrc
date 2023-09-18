@@ -1,4 +1,5 @@
 {
   "semi": false,
-  "quote-style": "double"
+  "quote-style": "double",
+  "trailingComma": "none"
 }
