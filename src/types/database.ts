@@ -129,6 +129,34 @@ export interface Database {
           }
         ]
       }
+      follow: {
+        Row: {
+          created_at: string
+          follow_user_id: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          follow_user_id: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          follow_user_id?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "follow_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       likes: {
         Row: {
           birdtweets_id: string | null

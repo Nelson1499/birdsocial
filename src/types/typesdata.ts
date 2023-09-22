@@ -6,6 +6,7 @@ export type PostRelationDatabase = Database["public"]["Tables"]["users"]["Row"]
 export type PostLikesDatabase = Database["public"]["Tables"]["likes"]["Row"]
 export type PostRespotDatabase = Database["public"]["Tables"]["birdretweets"]["Row"]
 export type PostCommentDatabase = Database["public"]["Tables"]["commentbirdtweets"]["Row"]
+export type followDatabase = Database["public"]["Tables"]["follow"]["Row"]
 
 export type RelationPost = PostDatabase & { users: PostRelationDatabase } & { birdretweets: { user_has_repost_post: PostRespotDatabase, amount_repost: number } | any } & { likes: { user_has_liked_post: PostLikesDatabase, amount_likes: number } | any } & { commentbirdtweets: PostCommentDatabase[] }
 export interface ObjectUser {
@@ -42,3 +43,5 @@ export interface InteractionCommenttype {
 export interface childrenprops {
   children: ReactPortal
 }
+
+export type userfollow = PostRelationDatabase & { follow: followDatabase[] } & { followuser: followDatabase | undefined }

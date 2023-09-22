@@ -29,10 +29,9 @@ export default async function Home () {
 
   })) ?? []
   const userAuthentication = session?.user?.user_metadata as ObjectUser
-  console.log(posts)
 
   return (
-    <main className="md:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative">
+    <main className="lg:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative">
       <div className="">
         <Title />
         <div className="mx-6">

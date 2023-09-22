@@ -11,9 +11,9 @@ export const ButtonComment = ({ children }: { children: ReactNode }) => {
     <div>
       { showNestedComments ? null : <button className="ml-1" onClick={toggleNestedComments}> Mostrar</button> }
       { showNestedComments &&
-      <div className="mx-5">
+      <>
         {children}
-      </div>
+      </>
       }
     </div>
   )
