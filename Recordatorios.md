@@ -1,19 +1,20 @@
-[] opción seguir {
+[X] opción seguir {
   tabla para seguir usuarios ✅
   mostrar usuarios
   funcionalidad para seguir utilizando actions
 }
 
-[]footer de navegación Movil {
+[X]footer de navegación Movil {
   iconos
   css
   funcionalidad
 }
 
-[]Links y rutas{
+[X]Links y rutas{
   crear rutas de search, notificaciones, perfil, message.
   agregar links de navbar y footer
 }
+
 
 []explorer{
   buscador{
@@ -35,5 +36,6 @@
   post o repost del usuario
 }
 
+[]darkmode
 
 

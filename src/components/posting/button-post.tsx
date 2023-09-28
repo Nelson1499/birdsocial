@@ -7,7 +7,7 @@ export const ButtonPost = () => {
       <button
         disabled={pending}
         type="submit"
-        className="bg-blue-500 rounded-full py-2 px-3 my-2"
+        className="bg-blue-500 rounded-full py-1 px-2 mt-2 w-max text-lg"
       >
         {pending ? "Posteando..." : "Postear"}
       </button>

@@ -45,7 +45,7 @@ export default async function Posting ({
   console.log(error)
   return (
     <main className="">
-      <div className="md:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative">
+      <div className="lg:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative pb-5">
         <TitlePost />
         <div className="mx-6">
           {/* {session !== null && <Posting data={ userAuthentication } />} */}

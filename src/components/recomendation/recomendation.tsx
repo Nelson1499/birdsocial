@@ -18,7 +18,6 @@ const Recomendation = async () => {
     followuser: user.follow.find((follow) => follow.user_id === session?.user?.id)
   }))
   const userAuthentication: number | any = session?.user?.id
-  console.log(userFollow)
   return (
     <div className="border-2 border-white border-opacity-10 rounded my-5  mx-5">
       <div>

@@ -54,11 +54,11 @@ export const Interaction = ({ data }: { data: InteractionPost }) => {
   }
   return (
     <div className="flex h-10 m-auto w-full items-center">
-      <div className="m-auto space-x-20">
+      <div className="m-auto flex justify-between items-center w-72">
         <span className="cursor-pointer" onClick={ navigation }>
           <ChatBubbleOutlineIcon className="text-2xl" /> {commentbirdtweets.length}
         </span>
-        <span onClick={handleRePost} className="cursor-pointer hover">
+        <span onClick={handleRePost} className="cursor-pointer">
           <RepeatIcon
             className={`${
               birdretweets.user_has_repost_post !== undefined
@@ -72,8 +72,8 @@ export const Interaction = ({ data }: { data: InteractionPost }) => {
           {
             likes.user_has_liked_post !== undefined ? <StarIcon className="text-2xl text-yellow-300" /> : <StarBorderIcon className="text-2xl hover:text-yellow-300" />
           }
-        </span>
         {likes.amount_likes}
+        </span>
       </div>
     </div>
   )

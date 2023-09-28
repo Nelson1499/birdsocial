@@ -4,7 +4,6 @@ import type { RelationPost } from "@/types/typesdata"
 
 export const Post = ({ post }: { post: RelationPost[] | any }) => {
   const { birdtweets, users, likes, id, birdretweets, commentbirdtweets } = post as RelationPost
-  // console.log(post)
   return (
     <article className="border-b-2 border-b-white border-opacity-10 py-4 items-center justify-center">
       <div className="flex my-2">

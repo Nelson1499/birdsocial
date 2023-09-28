@@ -8,7 +8,7 @@ export const Items = () => [
   {
     title: "Inicio",
     icon: HomeIcon,
-    link: "/home"
+    link: "/"
   },
   {
     title: "Explorar",

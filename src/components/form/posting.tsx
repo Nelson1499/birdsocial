@@ -1,15 +1,32 @@
 "use client"
 import Image from "next/image"
 import type { ObjectUser } from "@/types/typesdata"
-import { useRef } from "react"
+import { type RefObject, useEffect, useRef, useState, type ChangeEvent } from "react"
 import { addNewPost } from "@/actions/add-post"
 import { ButtonPost } from "../posting/button-post"
 
 export const Posting = ({ data }: { data: ObjectUser }) => {
+  const [text, setText] = useState("")
   const formRef = useRef<HTMLFormElement>(null)
   const addPost = async (formData: FormData) => {
     await addNewPost(formData)
     formRef.current?.reset()
+  }
+  const textareaRef: RefObject<HTMLTextAreaElement> = useRef(null)
+
+  useEffect(() => {
+    adjustTextareaHeight()
+  }, [text])
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current !== null) {
+      textareaRef.current.style.height = "auto"
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
+    }
+  }
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = e.target
+    setText(value)
   }
   return (
     <form
@@ -28,9 +45,16 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
       <div className="w-full mx-4">
         <textarea
           maxLength={225}
-          placeholder="Que contas?"
+          placeholder="¿Que Contas?"
           name="post"
           id="post"
+          className="mx-3 py-2 w-full resize-y"
+          ref={textareaRef}
+          value={text}
+          onChange={handleChange}
+          style={{
+            resize: "none"
+          }}
         />
         <ButtonPost />
       </div>
