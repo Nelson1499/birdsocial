@@ -1,6 +1,6 @@
 import type { ElementType } from "react"
 
-export type Iconfooter = {
+export interface Iconfooter {
   title: string
   icon: ElementType
   link: string
