@@ -3,12 +3,14 @@ import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar/navbar"
 import Head from "next/head"
 import Recomendation from "@/components/recomendation/recomendation"
-import { Navbarfooter } from "@/components/footer.tsx/navbarfooter"
+import { Navbarfooter } from "@/components/footer/navbarfooter"
 
 export const metadata: Metadata = {
   title: "Birdosocial",
   description: "Aplicación de posteos de usuarios similar a twitter"
 }
+
+export const dynamic = "force-dynamic"
 
 export default function RootLayout ({
   children
