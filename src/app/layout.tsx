@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "Aplicación de posteos de usuarios similar a twitter"
 }
 
-export const dynamic = "force-dynamic"
-
 export default function RootLayout ({
   children
 }: {

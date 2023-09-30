@@ -1,7 +1,5 @@
 "use server"
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
-import type { Database } from "@/types/database"
+import { Componentclient } from "@/componentsclients/component-client"
 import { Postcomment } from "./commentpost"
 import type { ObjectUser, PostLikesDatabase, PostRespotDatabase, RelationPostComment, TypeComment } from "@/types/typesdata"
 
@@ -12,7 +10,7 @@ export const commentpostServer = async ({
   styleData: boolean | any
 }) => {
   const { id } = post as RelationPostComment
-  const supabase = createServerComponentClient<Database>({ cookies })
+  const supabase = Componentclient()
   const {
     data: { session }
   } = await supabase.auth.getSession()

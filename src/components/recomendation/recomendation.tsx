@@ -1,11 +1,9 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
 import type { userfollow } from "@/types/typesdata"
-import type { Database } from "@/types/database"
 import Recomendationclient from "./recomendation-client"
+import { Componentclient } from "@/componentsclients/component-client"
 
 const Recomendation = async () => {
-  const supabase = createServerComponentClient<Database>({ cookies })
+  const supabase = Componentclient()
   const {
     data: { session }
   } = await supabase.auth.getSession()

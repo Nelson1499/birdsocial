@@ -1,13 +1,12 @@
 "use server"
-import { cookies } from "next/headers"
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs"
 import { revalidatePath } from "next/cache"
+import { ServerActions } from "@/componentsclients/component-server-actions"
 
 export const following = async (formData: FormData) => {
   const userfollow = formData.get("id_user_follow")
 
   if (userfollow === null) return
-  const supabase = createServerActionClient({ cookies })
+  const supabase = ServerActions()
   // revisar si el usuario está autenticado
   const { data: { user } } = await supabase.auth.getUser()
   if (user === null) return
@@ -19,7 +18,7 @@ export const Deletefollowing = async (formData: FormData) => {
   const userfollow = formData.get("id_user_follow")
 
   if (userfollow === null) return
-  const supabase = createServerActionClient({ cookies })
+  const supabase = ServerActions()
   // revisar si el usuario está autenticado
   const { data: { user } } = await supabase.auth.getUser()
   if (user === null) return

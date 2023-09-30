@@ -11,6 +11,7 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
   const addPost = async (formData: FormData) => {
     await addNewPost(formData)
     formRef.current?.reset()
+    setText("")
   }
   const textareaRef: RefObject<HTMLTextAreaElement> = useRef(null)
 

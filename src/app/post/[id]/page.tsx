@@ -1,18 +1,17 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
-import type { Database } from "@/types/database"
 import type { ObjectUser, RelationPostPrincipal } from "@/types/typesdata"
 import type { Paramstypes } from "@/types/paramsTypes"
 import { PostCentral } from "@/components/posting/post-central"
 import { CommentPost } from "@/components/form/post-comments"
 import { commentpostServer as CommentpostServer } from "@/components/posting/commentpost-server"
 import { TitlePost } from "@/components/header/post-title"
+import { Componentclient } from "@/componentsclients/component-client"
+
 export default async function Posting ({
   params: { id }
 }: {
   params: Paramstypes
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies })
+  const supabase = Componentclient()
   const {
     data: { session }
   } = await supabase.auth.getSession()
