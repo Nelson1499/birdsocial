@@ -1,8 +1,19 @@
+import type { PostRelationDatabase } from "@/types/typesdata"
 import { AuthButton } from "./authbutton-client"
 import { Componentclient } from "@/componentsclients/component-client"
 
 export async function AuthButtonServer () {
   const supabase = Componentclient()
-  const { data: { session } } = await supabase.auth.getSession()
-  return <AuthButton session={session} />
+  const {
+    data: { session }
+  } = await supabase.auth.getSession()
+  const id = session?.user?.id
+  const { data } = await supabase
+    .from("users")
+    .select("*")
+    .eq("id", id ?? "")
+  const user: PostRelationDatabase[] = data ?? []
+  if (user !== null) {
+    return <AuthButton users={user[0]} session={session} />
+  }
 }

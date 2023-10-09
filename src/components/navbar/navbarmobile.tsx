@@ -1,7 +1,7 @@
 export const Navbarmobile = () => {
   return (
-    <nav className="flex flex-col">
-      <ul>
+    <nav className="w-full">
+      <ul className="h-screen">
         <li>
           Perfil
         </li>

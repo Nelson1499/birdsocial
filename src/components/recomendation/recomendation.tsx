@@ -17,7 +17,7 @@ const Recomendation = async () => {
   }))
   const userAuthentication: number | any = session?.user?.id
   return (
-    <div className="border-2 border-white border-opacity-10 rounded my-5  mx-5">
+    <div className="border-2 border-white border-opacity-10 rounded my-5 mx-2  xl:mx-5">
       <div>
         <h3 className="mx-2">A quien Seguir</h3>
         <ul>

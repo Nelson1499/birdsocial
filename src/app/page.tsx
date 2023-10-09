@@ -34,11 +34,11 @@ export default async function Home () {
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   if (session === null) { redirect("/login") }
   return (
-    <main className="lg:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative">
-      <div className="">
+    <main className="sm:w-[600px] z-10 w-full h-max sm:border-x-2 border-white border-opacity-10 pb-10">
+      <div className="relative">
         <Title data={userAuthentication}>
-          <div className="mx-6">
-            {session !== null && <Posting data={userAuthentication} />}
+          <div className="mx-2 md:mx-6">
+            {session !== null ? <div className="hidden md:block"><Posting data={userAuthentication} /></div> : null}
             {posts?.map((post) => (
               <Post key={post.id} post={post} />
             ))}

@@ -20,10 +20,10 @@ export function AuthLoginClient ({ session }: { session: Session | any }) {
     })
   }
   return (
-    <div className="mx-auto w-80 py-20">
+    <div className="mx-auto w-60 md:w-80 py-20">
       {session === null
         ? (<>
-          <h1 className="text-2xl font-extrabold">
+          <h1 className="text-xl md:text-2xl font-extrabold">
             Entérate lo que está pasando en el mundo en este momento.
           </h1>
           <button

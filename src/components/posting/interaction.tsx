@@ -54,7 +54,7 @@ export const Interaction = ({ data }: { data: InteractionPost }) => {
   }
   return (
     <div className="flex h-10 m-auto w-full items-center">
-      <div className="m-auto flex justify-between items-center w-72">
+      <div className="m-auto flex justify-between items-center w-40 md:w-72">
         <span className="cursor-pointer" onClick={ navigation }>
           <ChatBubbleOutlineIcon className="text-2xl" /> {commentbirdtweets.length}
         </span>

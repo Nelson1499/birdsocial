@@ -1,5 +1,6 @@
-import { ServerActions } from "@/componentsclients/component-server-actions"
+"use server"
 import { revalidatePath } from "next/cache"
+import { ServerActions } from "@/componentsclients/component-server-actions"
 export const addNewComment = async (formData: FormData) => {
   const post = formData.get("post")
   const idpost = formData.get("id_post")

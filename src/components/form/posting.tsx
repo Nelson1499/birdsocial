@@ -1,33 +1,24 @@
 "use client"
 import Image from "next/image"
-import type { ObjectUser } from "@/types/typesdata"
-import { type RefObject, useEffect, useRef, useState, type ChangeEvent } from "react"
+import { useRef, type KeyboardEventHandler } from "react"
 import { addNewPost } from "@/actions/add-post"
 import { ButtonPost } from "../posting/button-post"
+import { type ObjectUser } from "@/types/typesdata"
 
 export const Posting = ({ data }: { data: ObjectUser }) => {
-  const [text, setText] = useState("")
   const formRef = useRef<HTMLFormElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
   const addPost = async (formData: FormData) => {
     await addNewPost(formData)
     formRef.current?.reset()
-    setText("")
   }
-  const textareaRef: RefObject<HTMLTextAreaElement> = useRef(null)
 
-  useEffect(() => {
-    adjustTextareaHeight()
-  }, [text])
-
-  const adjustTextareaHeight = () => {
+  const textAreaAdjust: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
     if (textareaRef.current !== null) {
-      textareaRef.current.style.height = "auto"
+      textareaRef.current.style.height = "25px" // Restaura la altura para calcularla de nuevo
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
     }
-  }
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.target
-    setText(value)
   }
   return (
     <form
@@ -43,22 +34,23 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
         src={data.avatar_url}
         alt="perfil"
       />
-      <div className="w-full mx-4">
+      <span className="w-full mx-4">
         <textarea
           maxLength={225}
-          placeholder="¿Que Contas?"
+          placeholder="¿Qué cuentas?"
           name="post"
           id="post"
-          className="mx-3 py-2 w-full resize-y"
+          className="mx-3 py-2 h-max min-h-[50px]"
           ref={textareaRef}
-          value={text}
-          onChange={handleChange}
           style={{
-            resize: "none"
+            resize: "none",
+            overflow: "hidden",
+            position: "relative"
           }}
+          onKeyUp={textAreaAdjust}
         />
         <ButtonPost />
-      </div>
+      </span>
     </form>
   )
 }

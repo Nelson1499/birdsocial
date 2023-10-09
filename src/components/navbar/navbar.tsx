@@ -6,22 +6,24 @@ import Link from "next/link"
 export const Navbar = () => {
   const items = Items()
   return (
-    <div className="fixed">
-      <div className="px-4 font-bold space-x-2 my-2 flex text-xl">
+    <div className="fixed justify-center ml-10">
+      <div className="-ml-1 px-2 my-4 font-bold flex text-xl">
         <FlutterDashIcon fontSize="large" />
-        <h2>Birdsocial</h2>
+        <h2 className="hidden lg:block transition-all">Birdsocial</h2>
       </div>
       {items.map((item) => (
-        <div className="my-2 text-2xl cursor-pointer" key={item.title}>
+        <div className="my-4 text-2xl cursor-pointer w-full justify-center" key={item.title}>
           <Link href={item.link}>
-            <div className="space-x-2 py-4 px-4 rounded-3xl hover:bg-black hover:bg-opacity-20 text-xl flex w-max">
+            <div className={`rounded-3xl text-lg flex w-max ${item.class}`}>
               <item.icon fontSize="medium" />
-              <h3>{item.title}</h3>
+              <span className="hidden lg:block transition-all">{item.title}</span>
             </div>
           </Link>
         </div>
       ))}
-      <AuthButtonServer />
+      <div className="fixed bottom-0">
+        <AuthButtonServer />
+      </div>
     </div>
   )
 }

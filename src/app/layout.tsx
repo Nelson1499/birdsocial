@@ -22,13 +22,13 @@ export default function RootLayout ({
       </Head>
       <body className="w-full">
         <div className="flex items-center justify-center h-screen">
-          <div className="lg:mx-10 w-full mx-2">
-            <div className="w-full h-screen lg:flex my-2">
-              <div className="lg:w-[275px] h-full hidden lg:block">
+          <div className="md:mx-10 w-full mx-2">
+            <div className="w-full h-screen sm:flex">
+              <div className="sm:w-[100px] justify-center items-center lg:w-[275px] h-full hidden sm:block">
                 <Navbar />
               </div>
-              <div className="">{children}</div>
-              <div className="lg:w-[450px] hidden lg:block">
+              {children}
+              <div className="w-96 hidden lg:block">
                 <Recomendation />
               </div>
             </div>
