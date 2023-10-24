@@ -24,7 +24,7 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
     <form
       ref={formRef}
       action={addPost}
-      className="flex border-b-2 border-b-white border-opacity-10 py-4 my-2"
+      className="flex border-b-2 border-b-white border-opacity-10 py-1 my-2"
     >
       <Image
         priority={true}

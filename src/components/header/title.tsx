@@ -4,30 +4,33 @@ import Image from "next/image"
 import type { ObjectUser } from "@/types/typesdata"
 import perfil from "@/images/perfil.jpg"
 import { useState, useEffect } from "react"
-import type { ReactNode } from "react"
 import { Navbarmobile } from "../navbar/navbarmobile"
+import { useMiContextoNavbar } from "@/context/navbarcontext"
+import type { MiContextoType } from "@/types/typescontext"
 
 export const Title = ({
-  data,
-  children
+  data
 }: {
   data: ObjectUser
-  children: ReactNode
 }) => {
-  const [showNavbar, setShowNavbar] = useState(false)
+  const { showNavbar, setShowNavbar }: MiContextoType = useMiContextoNavbar()
   const [responsiveNavbar, setResponsiveNavbar] = useState(true)
   useEffect(() => {
-    const handleResize = () => { setResponsiveNavbar(window.innerWidth < 640) }
+    const handleResize = () => {
+      setResponsiveNavbar(window.innerWidth < 640)
+    }
 
     window.addEventListener("resize", handleResize)
     handleResize()
 
-    return () => { window.removeEventListener("resize", handleResize) }
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
   return (
     <>
-      <div className="w-full py-1 sticky top-0 z-10">
-        <div className="h-max border-b-2 border-white border-opacity-10 bg-black bg-opacity-60 flex">
+      <div className="w-full border-b-2 border-white sticky bg-black bg-opacity-80 border-opacity-10 -top-1 z-10 py-2">
+        <div className="h-max flex">
           <div
             className="grow"
             onClick={() => {
@@ -42,8 +45,8 @@ export const Title = ({
               height={500}
             />
           </div>
-          <div className="items-center justify-center text-center grow-0">
-            <div className="lg:hidden m-auto">
+          <div className="items-center justify-center text-center grow-0 lg:flex">
+            <div className="m-auto">
               <FlutterDashIcon />
             </div>
             <h2 className="text-xl font-semibold">Inicio</h2>
@@ -52,8 +55,8 @@ export const Title = ({
             <div className="rounded-full h-10 w-10 mx-2 my-1 lg:hidden"></div>
           </div>
         </div>
-        {(showNavbar && responsiveNavbar) ? <Navbarmobile /> : children}
       </div>
+      {showNavbar && responsiveNavbar ? <Navbarmobile /> : null }
     </>
   )
 }

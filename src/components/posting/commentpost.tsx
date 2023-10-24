@@ -4,6 +4,7 @@ import { InteractionComment } from "./interraction-comment"
 import { commentpostServer as CommentpostServer } from "./commentpost-server"
 import { ButtonComment } from "../button-comment/button"
 import { CommentForm } from "../form/post-comment-comments"
+import { Addspace } from "@/utilities/textutilities"
 export const Postcomment = ({
   post,
   session,
@@ -22,9 +23,9 @@ export const Postcomment = ({
       <article className={`${
         (styleData === null ? (styleData ? "border-l-2" : "") : "")}
         ${nestedComments.length > 0 ? "border-l-2" : ""}
-        items-center justify-center relative`}
+        items-center justify-center relative z-0 text-sm md:text-lg`}
     >
-        <div className="flex my-2 mx-2 z-0">
+        <div className="flex my-2 mx-2">
           <Image
             priority={true}
             width={500}
@@ -39,7 +40,7 @@ export const Postcomment = ({
               <small className="text-gray-300 mx-2">@{users.username}</small>
             </div>
             <div className="w-full">
-              <p>{comment}</p>
+              <p>{Addspace(comment, 56)}</p>
             </div>
           </div>
         </div>

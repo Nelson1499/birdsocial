@@ -43,10 +43,10 @@ export default async function Posting ({
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   console.log(error)
   return (
-    <main className="">
-      <div className="lg:w-[600px] w-full h-max border-x-2 border-white border-opacity-10 relative pb-5">
+    <main className="sm:w-[600px] w-full h-max sm:border-x-2 border-white border-opacity-10 pb-10">
+      <div>
         <TitlePost />
-        <div className="mx-6">
+        <div className="mx-2 md:mx-6">
           {/* {session !== null && <Posting data={ userAuthentication } />} */}
           <PostCentral post={postcenter} numcomments={comments?.length} />
           {session !== null && (

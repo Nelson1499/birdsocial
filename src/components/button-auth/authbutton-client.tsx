@@ -38,7 +38,7 @@ export function AuthButton({
   }
   return (
     <>
-      {(session !== null && show) && <div className="bg-gray-700 bg-opacity-100 rounded p-2 mb-2 shadow shadow-white">
+      {(session !== null && show) && <div className="bg-black rounded flex p-2 mb-2 shadow shadow-white">
         <button onClick={handleignOut}>Cerrar la sesión de {users.username}</button>
       </div>}
 

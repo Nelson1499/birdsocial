@@ -6,7 +6,7 @@ import Link from "next/link"
 export const Navbar = () => {
   const items = Items()
   return (
-    <div className="fixed justify-center ml-10">
+    <div className="fixed justify-center ml-10 z-10">
       <div className="-ml-1 px-2 my-4 font-bold flex text-xl">
         <FlutterDashIcon fontSize="large" />
         <h2 className="hidden lg:block transition-all">Birdsocial</h2>
@@ -21,7 +21,7 @@ export const Navbar = () => {
           </Link>
         </div>
       ))}
-      <div className="fixed bottom-0">
+      <div className="fixed bottom-3">
         <AuthButtonServer />
       </div>
     </div>

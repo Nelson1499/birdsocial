@@ -1,6 +1,7 @@
 import Image from "next/image"
 import type { RelationPostPrincipal } from "@/types/typesdata"
 import { InteractionCentral } from "./interaction-central"
+import { Addspace } from "@/utilities/textutilities"
 export const PostCentral = ({ post, numcomments }: { post: RelationPostPrincipal[], numcomments: number | any }) => {
   const { birdtweets, users, likes, id, birdretweets } = post[0]
   return (
@@ -20,8 +21,8 @@ export const PostCentral = ({ post, numcomments }: { post: RelationPostPrincipal
             <h3 className="text-gray-300 ">@{users.username}</h3>
           </div>
         </div>
-        <div className="w-full">
-          <p>{birdtweets}</p>
+        <div className="w-full p-2">
+          <p>{Addspace(birdtweets, 70)}</p>
         </div>
       </div>
       <div className="w-full justify-center">

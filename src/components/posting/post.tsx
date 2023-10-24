@@ -1,12 +1,13 @@
 import Image from "next/image"
 import { Interaction } from "./interaction"
 import type { RelationPost } from "@/types/typesdata"
+import { Addspace } from "@/utilities/textutilities"
 
 export const Post = ({ post }: { post: RelationPost[] | any }) => {
   const { birdtweets, users, likes, id, birdretweets, commentbirdtweets } =
     post as RelationPost
   return (
-    <article className="border-b-2 border-b-white border-opacity-10 py-2 items-center justify-center text-sm md:text-xl">
+    <article className="border-b-2 border-b-white border-opacity-10 py-2 items-center justify-center text-sm md:text-lg">
       <div className="flex">
         <Image
           priority={true}
@@ -22,7 +23,7 @@ export const Post = ({ post }: { post: RelationPost[] | any }) => {
             <small className="text-gray-300 md:mx-2">@{users.username}</small>
           </div>
           <div className="w-full">
-            <p>{birdtweets}</p>
+            <p>{Addspace(birdtweets, 56)}</p>
           </div>
           <div className="w-full justify-center block">
             <Interaction
