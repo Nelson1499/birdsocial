@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import { useState } from "react"
 
-export function AuthButton({
+export function AuthButton ({
   session,
   users
 }: {
@@ -43,11 +43,13 @@ export function AuthButton({
       </div>}
 
       <div className="text-center cursor-pointer" onClick={() => { setshow(!show) }}>
-        {session === null ? (
+        {session === null
+          ? (
           <div className="">
             <button onClick={handleSign}>Authgoogle</button>
           </div>
-        ) : (
+            )
+          : (
           <div className="flex -ml-1">
             <Image
               className="lg:w-10 lg:h-10 w-8 h-8 rounded-full mr-2"
@@ -62,7 +64,7 @@ export function AuthButton({
             </span>
             <MoreHorizIcon className="hidden lg:block" />
           </div>
-        )}
+            )}
       </div>
     </>
   )
