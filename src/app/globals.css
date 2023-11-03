@@ -23,3 +23,11 @@ body {
 textarea {
   @apply bg-transparent outline-none placeholder:text-slate-400 placeholder:text-xl border-none w-full resize-none
 }
+
+.syllable-break {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+

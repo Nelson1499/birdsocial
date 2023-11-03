@@ -26,31 +26,33 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
       action={addPost}
       className="flex border-b-2 border-b-white border-opacity-10 py-1 my-2"
     >
-      <Image
-        priority={true}
-        width={500}
-        height={500}
-        className="w-12 h-12 rounded-full"
-        src={data.avatar_url}
-        alt="perfil"
-      />
-      <span className="w-full mx-4">
-        <textarea
-          maxLength={225}
-          placeholder="¿Qué cuentas?"
-          name="post"
-          id="post"
-          className="mx-3 py-2 h-max min-h-[50px]"
-          ref={textareaRef}
-          style={{
-            resize: "none",
-            overflow: "hidden",
-            position: "relative"
-          }}
-          onKeyUp={textAreaAdjust}
+      <section className="flex mx-2 md:mx-5 w-full">
+        <Image
+          priority={true}
+          width={500}
+          height={500}
+          className="w-12 h-12 rounded-full"
+          src={data.avatar_url}
+          alt="perfil"
         />
-        <ButtonPost />
-      </span>
+        <span className="w-full mx-4">
+          <textarea
+            maxLength={225}
+            placeholder="¿Qué cuentas?"
+            name="post"
+            id="post"
+            className="mx-3 py-2 h-max min-h-[50px]"
+            ref={textareaRef}
+            style={{
+              resize: "none",
+              overflow: "hidden",
+              position: "relative"
+            }}
+            onKeyUp={textAreaAdjust}
+          />
+          <ButtonPost />
+        </span>
+      </section>
     </form>
   )
 }

@@ -1,11 +1,11 @@
 "use client"
 import Image from "next/image"
-import type { ObjectUser, TypeComment } from "@/types/typesdata"
+import type { ObjectUser, RelationPost } from "@/types/typesdata"
 import { useRef } from "react"
 import { ButtonComment } from "../posting/button-comment"
 import { addNewComment } from "@/actions/add-comment-post"
 
-export const CommentPost = ({ data, post }: { data: ObjectUser, post: TypeComment }) => {
+export const CommentPost = ({ data, post }: { data: ObjectUser, post: RelationPost }) => {
   const formRef = useRef<HTMLFormElement>(null)
   const addPost = async (formData: FormData) => {
     await addNewComment(formData)
@@ -19,7 +19,7 @@ export const CommentPost = ({ data, post }: { data: ObjectUser, post: TypeCommen
       action={addPost}
       className="my-2 justify-center items-center border-b-2 border-white border-opacity-10"
     >
-      <div className="flex">
+      <div className="flex mx-2 md:mx-5">
       <Image
         priority={true}
         width={500}

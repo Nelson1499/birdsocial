@@ -1,8 +1,8 @@
 "use client"
 import RepeatIcon from "@mui/icons-material/Repeat"
 import { type ReactNode, useState } from "react"
-import StarIcon from "@mui/icons-material/Star"
-import StarBorderIcon from "@mui/icons-material/StarBorder"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useRouter } from "next/navigation"
@@ -13,7 +13,12 @@ export const InteractionComment = ({
   children,
   session,
   commentsnum
-}: { data: TypeComment, children: ReactNode, session: any, commentsnum: number }) => {
+}: {
+  data: TypeComment
+  children: ReactNode
+  session: any
+  commentsnum: number
+}) => {
   const { likes, id, birdretweets } = data
   const [showformcomment, setshowformcomment] = useState<boolean>(false)
   const router = useRouter()
@@ -64,33 +69,45 @@ export const InteractionComment = ({
     <>
       <div className="flex h-10 m-auto w-full items-center">
         <div className="m-auto space-x-20">
-          <span
-            className="cursor-pointer"
-            onClick={toggleFormComment}
-          >
-            <ChatBubbleOutlineIcon className="text-2xl" /> {commentsnum}
+          <span className="cursor-pointer">
+            <button onClick={toggleFormComment} className="p-1 rounded-full hover:bg-sky-500 hover:bg-opacity-30 mr-1">
+              <ChatBubbleOutlineIcon className="text-2xl hover:text-sky-500" />
+            </button>
+            {commentsnum}
           </span>
-          <span onClick={handleRePost} className="cursor-pointer hover">
-            <RepeatIcon
-              className={`${
-                birdretweets.amount_repost > 0 ? "text-green-500" : "text-white"
-              }`}
-            />
+          <span
+            className="cursor-pointer hover:text-green-500"
+          >
+
+            <button onClick={handleRePost} className="p-1 rounded-full hover:bg-green-500 hover:bg-opacity-30 mr-1">
+              <RepeatIcon
+                className={`${
+                  birdretweets.amount_repost > 0 && "text-green-500"
+                }`}
+              />
+            </button>
             {birdretweets?.amount_repost}
           </span>
-          <span onClick={handleLikes} className="cursor-pointer">
-            {likes.amount_likes > 0
-              ? (
-              <StarIcon className="text-2xl text-yellow-300" />
-                )
-              : (
-              <StarBorderIcon className="text-2xl hover:text-yellow-300" />
-                )}
+          <span
+            className="cursor-pointer hover:text-red-500"
+          >
+            <button
+              onClick={handleLikes}
+              className="p-1 rounded-full hover:bg-red-500 hover:bg-opacity-30 mr-1"
+            >
+              {likes.amount_likes > 0
+                ? (
+                <FavoriteIcon className="text-2xl text-red-500" />
+                  )
+                : (
+                <FavoriteBorderIcon className="text-2xl hover:text-red-500" />
+                  )}
+            </button>
+            {likes.amount_likes}
           </span>
-          {likes.amount_likes}
         </div>
       </div>
-      {showformcomment && session !== null && <div>{ children }</div>}
+      {showformcomment && session !== null && <div>{children}</div>}
     </>
   )
 }

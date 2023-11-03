@@ -1,52 +1,30 @@
-import type { ObjectUser, RelationPostPrincipal } from "@/types/typesdata"
+import type { ObjectUser, RelationPost } from "@/types/typesdata"
 import type { Paramstypes } from "@/types/paramsTypes"
 import { PostCentral } from "@/components/posting/post-central"
 import { CommentPost } from "@/components/form/post-comments"
 import { commentpostServer as CommentpostServer } from "@/components/posting/commentpost-server"
 import { TitlePost } from "@/components/header/post-title"
-import { Componentclient } from "@/componentsclients/component-client"
+import { Session } from "@/start/session."
+import { QueryPostAndComments } from "@/db/supabase_query"
+import { likesAndRepost } from "@/utilities/likesandrepost"
 
 export default async function Posting ({
   params: { id }
 }: {
   params: Paramstypes
 }) {
-  const supabase = Componentclient()
-  const {
-    data: { session }
-  } = await supabase.auth.getSession()
-  const { data } = await supabase
-    .from("birdtweets")
-    .select("*, users(*), likes(*), birdretweets(*), commentbirdtweets(*)")
-    .eq("id", id)
-  const { data: comments, error } = await supabase
-    .from("commentbirdtweets")
-    .select("*, users(*), likes(*), birdretweets(*)")
-    .eq("id_birdtweets", id)
-  // const posts = data as RelationPost[]
-  const postcenter: RelationPostPrincipal[] | any[] =
-    data?.map((post) => ({
-      ...post,
-      likes: {
-        user_has_liked_post: post.likes.find(
-          (like) => like?.user_id === session?.user?.id
-        ),
-        amount_likes: post?.likes?.length
-      },
-      birdretweets: {
-        user_has_repost_post: post.birdretweets.find(
-          (repost) => repost?.user_id === session?.user?.id
-        ),
-        amount_repost: post?.birdretweets?.length
-      }
-    })) ?? []
+  const session = await Session()
+  const { data, comments } = await QueryPostAndComments(id)
+  const post: RelationPost[] | any = data
+  const postcenter = await likesAndRepost(post, session)
   const userAuthentication = session?.user?.user_metadata as ObjectUser
-  console.log(error)
+  console.log(data)
+
   return (
-    <main className="sm:w-[600px] w-full h-max sm:border-x-2 border-white border-opacity-10 pb-10">
+    <main className="sm:w-[600px] w-full h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
       <div>
         <TitlePost />
-        <div className="mx-2 md:mx-6">
+        <div className="">
           {/* {session !== null && <Posting data={ userAuthentication } />} */}
           <PostCentral post={postcenter} numcomments={comments?.length} />
           {session !== null && (
@@ -55,9 +33,11 @@ export default async function Posting ({
           {comments?.map((post) => (
             <div
               key={post.id}
-              className="border-b border-white border-opacity-10 mx-5"
+              className="border-b border-white border-opacity-10"
             >
-              <CommentpostServer post={post} styleData={null} />
+              <div className="mx-2 md:mx-5">
+                <CommentpostServer post={post} styleData={null} />
+              </div>
             </div>
           ))}
         </div>

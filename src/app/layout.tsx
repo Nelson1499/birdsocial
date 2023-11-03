@@ -4,7 +4,6 @@ import { Navbar } from "@/components/navbar/navbar"
 import Head from "next/head"
 import Recomendation from "@/components/recomendation/recomendation"
 import { Navbarfooter } from "@/components/footer/navbarfooter"
-import { Buttonpostresponsive } from "@/components/button-post/buttonpost"
 import { MiContextoProvider } from "@/context/postingcontext"
 import { ContainerPost } from "@/components/container/containerform-post"
 import { ContainerLayout } from "@/components/container/containerLayout"
@@ -36,7 +35,6 @@ export default function RootLayout ({
               <Recomendation />
             </div>
           </ContainerLayout>
-          <Buttonpostresponsive />
           <Navbarfooter />
         </MiContextoProvider>
       </body>

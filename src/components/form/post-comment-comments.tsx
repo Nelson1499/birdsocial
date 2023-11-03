@@ -41,7 +41,7 @@ export const CommentForm = ({
     <form
       ref={formReferens}
       action={addPost}
-      className="my-2 p-2 mx-2 rounded justify-center items-center border-2 border-white border-opacity-10 w-full"
+      className="my-2 p-2 rounded justify-center items-center border-2 border-white border-opacity-10 w-full"
     >
       <div className="flex">
         <Image

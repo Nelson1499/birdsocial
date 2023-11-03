@@ -1,14 +1,15 @@
 "use client"
 import RepeatIcon from "@mui/icons-material/Repeat"
-import StarIcon from "@mui/icons-material/Star"
-import StarBorderIcon from "@mui/icons-material/StarBorder"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useRouter } from "next/navigation"
 import type { InteractionPost } from "@/types/typesdata"
 
 export const InteractionCentral = ({
-  data, numcomments
+  data,
+  numcomments
 }: {
   data: unknown | InteractionPost
   numcomments: number | any
@@ -57,37 +58,49 @@ export const InteractionCentral = ({
   return (
     <>
       <div className="flex h-max m-auto border-t-2 border-white border-opacity-20 w-full items-center">
-        <div className="space-x-5 flex">
-        <span className="flex">{numcomments}<p className="text-gray-400 mx-2">Comments</p></span>
-        <span className="flex">{birdretweets.amount_repost}<p className="text-gray-400 mx-2">BirdRetweets</p></span>
-        <span className="flex">{likes.amount_likes}<p className="text-gray-400 mx-2">Likes</p></span>
+        <div className="space-x-5 flex mx-2">
+          <span className="flex">
+            {numcomments}
+            <p className="text-gray-400 mx-2">Comments</p>
+          </span>
+          <span className="flex">
+            {birdretweets.amount_repost}
+            <p className="text-gray-400 mx-2">BirdRetweets</p>
+          </span>
+          <span className="flex">
+            {likes.amount_likes}
+            <p className="text-gray-400 mx-2">Likes</p>
+          </span>
         </div>
       </div>
-      <div className="flex h-10 m-auto border-t-2 border-white border-opacity-20 py-2 w-full items-center">
-        <div className="m-auto space-x-20">
-          <span className="cursor-pointer">
+      <div className="flex h-10 m-auto border-t-2 border-white border-opacity-20 w-full items-center">
+        <div className="m-auto flex w-64 justify-between">
+          <button className="p-1 rounded-full hover:bg-sky-500 hover:bg-opacity-30 mr-1 hover:text-sky-500">
             <ChatBubbleOutlineIcon className="text-2xl" />
-          </span>
-          <span onClick={handleRePost} className="cursor-pointer hover">
+          </button>
+          <button
+            onClick={handleRePost}
+            className="p-1 rounded-full hover:text-green-500 hover:bg-green-500 hover:bg-opacity-30 mr-1"
+          >
             <RepeatIcon
               className={`${
-                birdretweets.user_has_repost_post !== undefined
-                  ? "text-green-500"
-                  : "text-white"
+                birdretweets.user_has_repost_post !== undefined &&
+                "text-green-500"
               }`}
             />
-          </span>
-          <span onClick={handleLikes} className="cursor-pointer">
-            {
-            likes.user_has_liked_post !== undefined
+          </button>
+          <button
+            onClick={handleLikes}
+            className="p-1 rounded-full hover:bg-red-500 hover:bg-opacity-30 mr-1 hover:text-red-500"
+          >
+            {likes.user_has_liked_post !== undefined
               ? (
-              <StarIcon className="text-2xl text-yellow-300" />
+              <FavoriteIcon className="text-2xl text-red-500" />
                 )
               : (
-              <StarBorderIcon className="text-2xl hover:text-yellow-300" />
-                )
-            }
-          </span>
+              <FavoriteBorderIcon className="text-2xl " />
+                )}
+          </button>
         </div>
       </div>
     </>

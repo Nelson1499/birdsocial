@@ -1,7 +1,7 @@
 "use client"
 import RepeatIcon from "@mui/icons-material/Repeat"
-import StarIcon from "@mui/icons-material/Star"
-import StarBorderIcon from "@mui/icons-material/StarBorder"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useRouter } from "next/navigation"
@@ -54,25 +54,45 @@ export const Interaction = ({ data }: { data: InteractionPost }) => {
   }
   return (
     <div className="flex h-10 m-auto w-full items-center">
-      <div className="m-auto flex justify-between items-center w-40 md:w-72">
-        <span className="cursor-pointer" onClick={ navigation }>
-          <ChatBubbleOutlineIcon className="text-2xl" /> {commentbirdtweets.length}
+      <div className="m-auto flex justify-between items-center w-64">
+        <span
+          className="cursor-pointer hover:text-sky-500"
+
+        >
+          <button onClick={navigation} className="p-1 rounded-full hover:bg-sky-500 hover:bg-opacity-30 mr-1">
+            <ChatBubbleOutlineIcon className="text-2xl hover:text-sky-500" />
+          </button>
+          {commentbirdtweets.length}
         </span>
-        <span onClick={handleRePost} className="cursor-pointer">
-          <RepeatIcon
-            className={`${
-              birdretweets.user_has_repost_post !== undefined
-                ? "text-green-500"
-                : "text-white"
-            }`}
-          />
+        <span
+
+          className="cursor-pointer hover:text-green-500"
+        >
+          <button onClick={handleRePost} className="p-1 rounded-full hover:bg-green-500 hover:bg-opacity-30 mr-1">
+            <RepeatIcon
+              className={`hover:text-green-500 ${
+                birdretweets.user_has_repost_post !== undefined
+                  ? "text-green-500"
+                  : "text-white"
+              }`}
+            />
+          </button>
           {birdretweets.amount_repost}
         </span>
-        <span onClick={handleLikes} className="cursor-pointer">
-          {
-            likes.user_has_liked_post !== undefined ? <StarIcon className="text-2xl text-yellow-300" /> : <StarBorderIcon className="text-2xl hover:text-yellow-300" />
-          }
-        {likes.amount_likes}
+        <span className="cursor-pointer hover:text-red-500">
+          <button
+            onClick={handleLikes}
+            className="p-1 rounded-full hover:bg-red-500 hover:bg-opacity-30 mr-1"
+          >
+            {likes.user_has_liked_post !== undefined
+              ? (
+              <FavoriteIcon className="text-2xl text-red-500" />
+                )
+              : (
+              <FavoriteBorderIcon className="text-2xl hover:text-red-500" />
+                )}
+          </button>
+          {likes.amount_likes}
         </span>
       </div>
     </div>

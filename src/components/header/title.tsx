@@ -29,7 +29,7 @@ export const Title = ({
   }, [])
   return (
     <>
-      <div className="w-full border-b-2 border-white sticky bg-black bg-opacity-80 border-opacity-10 -top-1 z-10 py-2">
+      <div className="w-full border-white sticky bg-black top-0 z-10 py-2">
         <div className="h-max flex">
           <div
             className="grow"

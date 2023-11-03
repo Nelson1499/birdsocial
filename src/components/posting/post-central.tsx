@@ -1,11 +1,10 @@
 import Image from "next/image"
-import type { RelationPostPrincipal } from "@/types/typesdata"
+import type { RelationPost } from "@/types/typesdata"
 import { InteractionCentral } from "./interaction-central"
-import { Addspace } from "@/utilities/textutilities"
-export const PostCentral = ({ post, numcomments }: { post: RelationPostPrincipal[], numcomments: number | any }) => {
+export const PostCentral = ({ post, numcomments }: { post: RelationPost[], numcomments: number | any }) => {
   const { birdtweets, users, likes, id, birdretweets } = post[0]
   return (
-    <article className="border-b-2 border-b-white border-opacity-10 items-center justify-center">
+    <article className="border-b-2 border-b-white border-opacity-10 items-center justify-center mx-2 md:mx-5">
       <div className="">
         <div className="flex my-2">
           <Image
@@ -21,8 +20,8 @@ export const PostCentral = ({ post, numcomments }: { post: RelationPostPrincipal
             <h3 className="text-gray-300 ">@{users.username}</h3>
           </div>
         </div>
-        <div className="w-full p-2">
-          <p>{Addspace(birdtweets, 70)}</p>
+        <div className="w-full p-2 break-all">
+          <p>{birdtweets}</p>
         </div>
       </div>
       <div className="w-full justify-center">

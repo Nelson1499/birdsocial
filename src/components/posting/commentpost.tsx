@@ -4,7 +4,6 @@ import { InteractionComment } from "./interraction-comment"
 import { commentpostServer as CommentpostServer } from "./commentpost-server"
 import { ButtonComment } from "../button-comment/button"
 import { CommentForm } from "../form/post-comment-comments"
-import { Addspace } from "@/utilities/textutilities"
 export const Postcomment = ({
   post,
   session,
@@ -18,29 +17,26 @@ export const Postcomment = ({
 }) => {
   const { comment, users, nestedComments, responsepost } = post
   return (
-    <div className="my-2 ">
+    <div className="my-2">
       <h3 className="text-gray-400">Respondió a @{responsepost}</h3>
-      <article className={`${
-        (styleData === null ? (styleData ? "border-l-2" : "") : "")}
-        ${nestedComments.length > 0 ? "border-l-2" : ""}
-        items-center justify-center relative z-0 text-sm md:text-lg`}
+      <article className={"items-center justify-center text-sm md:text-base"}
     >
-        <div className="flex my-2 mx-2">
+        <div className="flex my-2">
           <Image
             priority={true}
             width={500}
             height={500}
-            className="w-12 h-12 rounded-full absolute -left-6 top-0"
+            className="w-12 h-12 rounded-full"
             src={users.avatar_url}
             alt="perfil"
           />
-          <div className="block mx-5 justify-center item-center">
+          <div className="block ml-2 justify-center item-center">
             <div className="flex">
               <h3>{users.name}</h3>
               <small className="text-gray-300 mx-2">@{users.username}</small>
             </div>
-            <div className="w-full">
-              <p>{Addspace(comment, 56)}</p>
+            <div className="w-full break-all">
+              <p>{comment}</p>
             </div>
           </div>
         </div>
