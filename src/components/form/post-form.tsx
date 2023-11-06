@@ -5,7 +5,6 @@ import Image from "next/image"
 import { ButtonPost } from "../posting/button-post"
 import { useRef, type KeyboardEventHandler, type MouseEvent } from "react"
 import { addNewPost } from "@/actions/add-post"
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
 import CloseIcon from "@mui/icons-material/Close"
 import type { MiContextoTypePosting } from "@/types/typescontext"
 
@@ -53,8 +52,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
                 setShowPosting(false)
               }}
             >
-              <KeyboardBackspaceIcon className="md:hidden" />
-              <CloseIcon className="hidden md:block" />
+              <CloseIcon />
             </section>
             <section className="flex w-full h-full">
               <Image
