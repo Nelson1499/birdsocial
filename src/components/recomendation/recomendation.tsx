@@ -13,16 +13,22 @@ const Recomendation = async () => {
     .order("created_at", { ascending: false })
   const userFollow = data?.map((user) => ({
     ...user,
-    followuser: user.follow.find((follow) => follow.user_id === session?.user?.id)
+    followuser: user.follow.find(
+      (follow) => follow.user_id === session?.user?.id
+    )
   }))
   const userAuthentication: number | any = session?.user?.id
   return (
-    <div className="border-2 border-white border-opacity-10 rounded my-5 mx-2  xl:mx-5">
-      <div>
+    <div className="w-96 hidden lg:block transition-all">
+      <div className="fixed border-2 border-white border-opacity-10 rounded my-5 mx-2 xl:mx-5">
         <h3 className="mx-2">A quien Seguir</h3>
         <ul>
           {userFollow?.map((user: userfollow) => (
-            <Recomendationclient key={user.id} user={user} session={userAuthentication} />
+            <Recomendationclient
+              key={user.id}
+              user={user}
+              session={userAuthentication}
+            />
           ))}
         </ul>
       </div>

@@ -1,7 +1,7 @@
 import type { PostLikesDatabase, PostRespotDatabase, RelationPost } from "@/types/typesdata"
 
-export const likesAndRepost = async (data: RelationPost[], session: any) => {
-  return data?.map((post) => ({
+export const likesAndRepost = async ({ data, session }: { data: RelationPost[] | any, session: any }) => {
+  return data?.map((post: RelationPost) => ({
     ...post,
     likes: {
       user_has_liked_post: post.likes.find(

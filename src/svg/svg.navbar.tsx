@@ -3,7 +3,6 @@ import SearchIcon from "@mui/icons-material/Search"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline"
 const classnamedefault = "hover:bg-black hover:bg-opacity-20 px-2"
 export const Items = () => [
   {
@@ -38,11 +37,5 @@ export const Items = () => [
     icon: PersonOutlineIcon,
     link: "/profile",
     class: classnamedefault
-  },
-  {
-    title: "Create posting",
-    icon: DriveFileRenameOutlineIcon,
-    link: "/create-posting",
-    class: "bg-blue-500 p-2"
   }
 ]

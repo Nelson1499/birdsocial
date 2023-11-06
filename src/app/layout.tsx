@@ -7,33 +7,31 @@ import { Navbarfooter } from "@/components/footer/navbarfooter"
 import { MiContextoProvider } from "@/context/postingcontext"
 import { ContainerPost } from "@/components/container/containerform-post"
 import { ContainerLayout } from "@/components/container/containerLayout"
+import { Session } from "@/start/session."
 
 export const metadata: Metadata = {
   title: "Birdosocial",
   description: "Aplicación de posteos de usuarios similar a twitter"
 }
 
-export default function RootLayout ({
+export default async function RootLayout ({
   children
 }: {
   children: React.ReactNode
 }) {
+  const session = await Session()
   return (
-    <html lang="en" className="scroll-smooth focus:scroll-auto" >
+    <html lang="en" className="scroll-smooth focus:scroll-auto transition-all">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body className="w-full relative">
+      <body>
         <MiContextoProvider>
           <ContainerPost />
           <ContainerLayout>
-            <div className="sm:w-[100px] justify-center items-center lg:w-[275px] h-full hidden sm:block">
-              <Navbar />
-            </div>
+            {session !== null && <Navbar />}
             {children}
-            <div className="w-96 hidden lg:block">
-              <Recomendation />
-            </div>
+            {session !== null && <Recomendation />}
           </ContainerLayout>
           <Navbarfooter />
         </MiContextoProvider>

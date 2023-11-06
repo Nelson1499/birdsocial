@@ -19,7 +19,6 @@ export function AuthButton ({
   const [show, setshow] = useState(false)
   const supabase = createClientComponentClient()
   const router = useRouter()
-  console.log(users)
   const handleSign = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -46,11 +45,11 @@ export function AuthButton ({
         {session === null
           ? (
           <div className="">
-            <button onClick={handleSign}>Authgoogle</button>
+            <button onClick={handleSign}>Iniciar session con google</button>
           </div>
             )
           : (
-          <div className="flex -ml-1">
+          <div className="flex">
             <Image
               className="lg:w-10 lg:h-10 w-8 h-8 rounded-full mr-2"
               src={users.avatar_url}
@@ -58,11 +57,11 @@ export function AuthButton ({
               height={100}
               alt="perfil"
             />
-            <span className="mr-2 hidden lg:block">
+            <span className="mr-2 hidden desktop:block">
               <p>{users.name}</p>
               <p>{users.username}</p>
             </span>
-            <MoreHorizIcon className="hidden lg:block" />
+            <MoreHorizIcon className="hidden desktop:block" />
           </div>
             )}
       </div>

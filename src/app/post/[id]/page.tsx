@@ -1,4 +1,4 @@
-import type { ObjectUser, RelationPost } from "@/types/typesdata"
+import type { ObjectUser } from "@/types/typesdata"
 import type { Paramstypes } from "@/types/paramsTypes"
 import { PostCentral } from "@/components/posting/post-central"
 import { CommentPost } from "@/components/form/post-comments"
@@ -15,13 +15,12 @@ export default async function Posting ({
 }) {
   const session = await Session()
   const { data, comments } = await QueryPostAndComments(id)
-  const post: RelationPost[] | any = data
-  const postcenter = await likesAndRepost(post, session)
+  const postcenter = await likesAndRepost({ data, session })
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   console.log(data)
 
   return (
-    <main className="sm:w-[600px] w-full h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
+    <main className="lg:w-[600px] table:w-[80%] w-full h-screen sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
       <div>
         <TitlePost />
         <div className="">
