@@ -20,8 +20,9 @@ export default async function RootLayout ({
   children: React.ReactNode
 }) {
   const session = await Session()
+
   return (
-    <html lang="en" className="scroll-smooth focus:scroll-auto transition-all">
+    <html lang="en">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -29,9 +30,9 @@ export default async function RootLayout ({
         <MiContextoProvider>
           <ContainerPost />
           <ContainerLayout>
-            {session !== null && <Navbar />}
-            {children}
-            {session !== null && <Recomendation />}
+              {session !== null && <Navbar />}
+              {children}
+              {session !== null && <Recomendation />}
           </ContainerLayout>
           <Navbarfooter />
         </MiContextoProvider>

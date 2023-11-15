@@ -11,7 +11,6 @@ const MiContexto = createContext<MiContextoType>({
 
 const MiContextoProviderNabvar = ({ children }: { children: ReactNode }) => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false)
-
   return (
     <MiContexto.Provider value={{ showNavbar, setShowNavbar }}>
       {children}

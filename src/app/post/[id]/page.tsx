@@ -7,6 +7,7 @@ import { TitlePost } from "@/components/header/post-title"
 import { Session } from "@/start/session."
 import { QueryPostAndComments } from "@/db/supabase_query"
 import { likesAndRepost } from "@/utilities/likesandrepost"
+import { Errorinternet } from "@/error/error"
 
 export default async function Posting ({
   params: { id }
@@ -17,10 +18,8 @@ export default async function Posting ({
   const { data, comments } = await QueryPostAndComments(id)
   const postcenter = await likesAndRepost({ data, session })
   const userAuthentication = session?.user?.user_metadata as ObjectUser
-  console.log(data)
-
   return (
-    <main className="lg:w-[600px] table:w-[80%] w-full h-screen sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
+    <main className="sm:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
       <div>
         <TitlePost />
         <div className="">
@@ -41,6 +40,7 @@ export default async function Posting ({
           ))}
         </div>
       </div>
+      <Errorinternet />
     </main>
   )
 }

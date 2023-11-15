@@ -38,7 +38,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
       {showPosting && (
         <div
           onClick={out}
-          className="fixed left-0 w-screen h-screen flex items-center justify-center bg-white bg-opacity-10 z-50"
+          className="fixed left-0 w-screen h-screen flex items-center justify-center bg-white bg-opacity-10 z-20"
         >
           <form
             ref={formRef}
@@ -46,14 +46,14 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
             className="bg-zinc-900 p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative"
             onClick={handleClickEnPost}
           >
-            <section
+            <button
               className="px-1 pb-3 cursor-pointer"
               onClick={() => {
                 setShowPosting(false)
               }}
             >
               <CloseIcon />
-            </section>
+            </button>
             <section className="flex w-full h-full">
               <Image
                 priority={true}

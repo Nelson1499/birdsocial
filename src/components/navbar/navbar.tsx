@@ -7,7 +7,7 @@ import { Buttonpostnavbar } from "../button-post/buttonpostnavbar"
 export const Navbar = () => {
   const items = Items()
   return (
-    <div className="sm:w-[50px] desktop:w-[215px] h-full hidden sm:block">
+    <div className="hidden sm:block sm:w-[50px] desktop:w-[215px] h-full">
       <div className="fixed">
           <div className="px-2 my-4 font-bold flex text-xl">
             <FlutterDashIcon fontSize="large" />

@@ -52,14 +52,14 @@ export function AuthButton ({
           <div className="flex">
             <Image
               className="lg:w-10 lg:h-10 w-8 h-8 rounded-full mr-2"
-              src={users.avatar_url}
+              src={users?.avatar_url}
               width={100}
               height={100}
               alt="perfil"
             />
             <span className="mr-2 hidden desktop:block">
-              <p>{users.name}</p>
-              <p>{users.username}</p>
+              <p>{users?.name}</p>
+              <p>{users?.username}</p>
             </span>
             <MoreHorizIcon className="hidden desktop:block" />
           </div>

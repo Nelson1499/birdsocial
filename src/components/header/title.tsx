@@ -8,12 +8,9 @@ import { Navbarmobile } from "../navbar/navbarmobile"
 import { useMiContextoNavbar } from "@/context/navbarcontext"
 import type { MiContextoType } from "@/types/typescontext"
 
-export const Title = ({
-  data
-}: {
-  data: ObjectUser
-}) => {
-  const { showNavbar, setShowNavbar }: MiContextoType = useMiContextoNavbar()
+export const Title = ({ data }: { data: ObjectUser }) => {
+  const { showNavbar, setShowNavbar }: MiContextoType =
+    useMiContextoNavbar()
   const [responsiveNavbar, setResponsiveNavbar] = useState(true)
   useEffect(() => {
     const handleResize = () => {
@@ -56,7 +53,7 @@ export const Title = ({
           </div>
         </div>
       </div>
-      {showNavbar && responsiveNavbar ? <Navbarmobile /> : null }
+      {showNavbar && responsiveNavbar ? <Navbarmobile /> : null}
     </>
   )
 }
