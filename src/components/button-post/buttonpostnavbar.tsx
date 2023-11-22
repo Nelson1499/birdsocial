@@ -6,10 +6,10 @@ export const Buttonpostnavbar = () => {
   const { setShowPosting } = useMiContexto()
 
   return (
-    <div className="my-4 text-2xl cursor-pointer w-full justify-center">
+    <div className="my-4 text-2xl cursor-pointer w-full flex justify-center">
       <button onClick={() => { setShowPosting(true) }} className="rounded-3xl text-lg flex w-max bg-sky-500 p-2">
         <DriveFileRenameOutlineIcon fontSize="medium" />
-        <span className="hidden desktop:block transition-all">Crear post</span>
+        <strong className="hidden desktop:block transition-all font-bold">Crear post</strong>
       </button>
     </div>
   )

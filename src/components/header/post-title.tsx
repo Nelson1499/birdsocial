@@ -7,13 +7,13 @@ export const TitlePost = () => {
     router.back()
   }
   return (
-    <div className="w-full h-[53px] border-opacity-10 bg-black sticky top-0 z-10">
-      <div className="items-center py-2 flex">
-        <span className="cursor-pointer" onClick={navigation}>
+    <header className="w-full h-[53px] border-opacity-10 bg-black sticky top-0 z-10">
+      <nav className="items-center py-2 flex">
+        <button className="active:outline-none" onClick={navigation}>
           <ArrowBackIcon />
-        </span>
+        </button>
         <h2 className="text-xl ml-3 font-semibold">Post</h2>
-      </div>
-    </div>
+      </nav>
+    </header>
   )
 }

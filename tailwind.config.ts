@@ -15,7 +15,7 @@ const config: Config = {
       },
       screens: {
         'desktop': '1200px',
-        'tablet': '691px'
+        'tablet': '651px'
       }
     },
   },

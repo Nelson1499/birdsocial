@@ -43,7 +43,7 @@ export const CommentForm = ({
       action={addPost}
       className="my-2 p-2 rounded justify-center items-center border-2 border-white border-opacity-10 w-full"
     >
-      <div className="flex">
+      <section className="flex">
         <Image
           priority={true}
           width={500}
@@ -67,12 +67,12 @@ export const CommentForm = ({
         />
         <input type="hidden" name="username" id="username" value={username} />
         <input type="hidden" name="id_post" id="id_post" value={post.id} />
-      </div>
-      <div className="flex justify-end items-end">
+      </section>
+      <footer className="flex justify-end items-end">
         <div className="ml-auto">
           <ButtonComment />
         </div>
-      </div>
+      </footer>
     </form>
   )
 }

@@ -3,39 +3,30 @@ import SearchIcon from "@mui/icons-material/Search"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
-const classnamedefault = "hover:bg-black hover:bg-opacity-20 px-2"
 export const Items = () => [
   {
     title: "Inicio",
     icon: HomeIcon,
-    link: "/",
-    class: classnamedefault
+    link: "/"
   },
   {
     title: "Explorar",
     icon: SearchIcon,
-    link: "/explore",
-    class: classnamedefault
-
+    link: "/explore"
   },
   {
     title: "Notificación",
     icon: NotificationsIcon,
-    link: "/notifications",
-    class: classnamedefault
-
+    link: "/notifications"
   },
   {
     title: "Mensaje",
     icon: MailOutlineIcon,
-    link: "/messages",
-    class: classnamedefault
-
+    link: "/messages"
   },
   {
     title: "Perfil",
     icon: PersonOutlineIcon,
-    link: "/profile",
-    class: classnamedefault
+    link: "/profile"
   }
 ]

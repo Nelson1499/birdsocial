@@ -7,32 +7,30 @@ import { Buttonpostnavbar } from "../button-post/buttonpostnavbar"
 export const Navbar = () => {
   const items = Items()
   return (
-    <div className="hidden sm:block sm:w-[50px] desktop:w-[215px] h-full">
-      <div className="fixed">
-          <div className="px-2 my-4 font-bold flex text-xl">
+    <header className="hidden tablet:block tablet:w-[50px] desktop:w-[215px] h-full transition-all ease-in-out delay-75">
+      <nav className="fixed mt-2 mx-1">
+          <div className="px-1 font-bold flex text-xl space-x-1">
             <FlutterDashIcon fontSize="large" />
             <h2 className="hidden desktop:block transition-all">Birdsocial</h2>
           </div>
           {items.map((item) => (
-            <div
-              className="my-4 text-2xl cursor-pointer w-full justify-center"
+            <ul
+              className="my-2 text-2xl cursor-pointer w-full justify-center"
               key={item.title}
             >
               <Link href={item.link}>
-                <div className={`rounded-3xl text-lg flex w-max ${item.class}`}>
+                <li className="rounded-3xl text-lg flex w-max hover:bg-black hover:bg-opacity-20 p-2 space-x-1">
                   <item.icon fontSize="medium" />
-                  <span className="hidden desktop:block transition-all">
+                  <strong className="hidden desktop:block transition-all font-bold">
                     {item.title}
-                  </span>
-                </div>
+                  </strong>
+                </li>
               </Link>
-            </div>
+            </ul>
           ))}
           <Buttonpostnavbar />
-          <div className="fixed bottom-3">
-            <AuthButtonServer />
-          </div>
-        </div>
-    </div>
+          <AuthButtonServer />
+        </nav>
+    </header>
   )
 }

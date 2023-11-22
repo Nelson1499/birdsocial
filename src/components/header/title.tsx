@@ -9,8 +9,7 @@ import { useMiContextoNavbar } from "@/context/navbarcontext"
 import type { MiContextoType } from "@/types/typescontext"
 
 export const Title = ({ data }: { data: ObjectUser }) => {
-  const { showNavbar, setShowNavbar }: MiContextoType =
-    useMiContextoNavbar()
+  const { showNavbar, setShowNavbar }: MiContextoType = useMiContextoNavbar()
   const [responsiveNavbar, setResponsiveNavbar] = useState(true)
   useEffect(() => {
     const handleResize = () => {
@@ -26,17 +25,17 @@ export const Title = ({ data }: { data: ObjectUser }) => {
   }, [])
   return (
     <>
-      <div className="w-full border-white sticky bg-black top-0 z-10 py-2">
-        <div className="h-max flex">
-          <div
-            className="grow"
+      <header className="w-full border-white sticky bg-black top-0 z-10 py-2">
+        <nav className="h-max flex">
+          <div role="button"
+            className="grow w-max active:bg-transparent outline-none"
             onClick={() => {
               setShowNavbar(!showNavbar)
             }}
           >
             <Image
               src={data?.avatar_url ?? perfil}
-              className="rounded-full h-10 w-10 mx-2 my-1 sm:hidden"
+              className="rounded-full h-10 w-10 mx-2 my-1 cursor-pointer tablet:hidden outline"
               alt="perfil"
               width={500}
               height={500}
@@ -51,8 +50,8 @@ export const Title = ({ data }: { data: ObjectUser }) => {
           <div className="grow">
             <div className="rounded-full h-10 w-10 mx-2 my-1 lg:hidden"></div>
           </div>
-        </div>
-      </div>
+        </nav>
+      </header>
       {showNavbar && responsiveNavbar ? <Navbarmobile /> : null}
     </>
   )

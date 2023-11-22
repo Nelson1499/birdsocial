@@ -36,7 +36,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
   return (
     <>
       {showPosting && (
-        <div
+        <aside
           onClick={out}
           className="fixed left-0 w-screen h-screen flex items-center justify-center bg-white bg-opacity-10 z-20"
         >
@@ -77,13 +77,13 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
                   }}
                   onKeyUp={textAreaAdjust}
                 />
-                <div className="absolute bottom-0 right-0 w-full flex items-end justify-end">
+                <section className="absolute bottom-0 right-0 w-full flex items-end justify-end">
                   <ButtonPost />
-                </div>
+                </section>
               </span>
             </section>
           </form>
-        </div>
+        </aside>
       )}
     </>
   )

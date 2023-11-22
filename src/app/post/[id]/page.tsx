@@ -19,27 +19,22 @@ export default async function Posting ({
   const postcenter = await likesAndRepost({ data, session })
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   return (
-    <main className="sm:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
-      <div>
-        <TitlePost />
-        <div className="">
-          {/* {session !== null && <Posting data={ userAuthentication } />} */}
-          <PostCentral post={postcenter} numcomments={comments?.length} />
-          {session !== null && (
-            <CommentPost data={userAuthentication} post={postcenter[0]} />
-          )}
-          {comments?.map((post) => (
-            <div
-              key={post.id}
-              className="border-b border-white border-opacity-10"
-            >
-              <div className="mx-2 md:mx-5">
-                <CommentpostServer post={post} styleData={null} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 table:pb-1 pb-10">
+      <TitlePost />
+      <PostCentral post={postcenter} numcomments={comments?.length} />
+      {session !== null && (
+        <CommentPost data={userAuthentication} post={postcenter} />
+      )}
+      {comments?.map((post) => (
+        <article
+          key={post.id}
+          className="post border-b border-white border-opacity-10"
+        >
+          <section className="post-content mx-2 md:mx-5">
+            <CommentpostServer post={post} styleData={null} />
+          </section>
+        </article>
+      ))}
       <Errorinternet />
     </main>
   )

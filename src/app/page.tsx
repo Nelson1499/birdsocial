@@ -34,24 +34,22 @@ export default async function Home () {
   }
 
   return (
-    <main className="sm:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
       <MiContextoProviderNabvar>
         <Title data={userAuthentication} />
-        <div className="">
-          {session !== null
-            ? (
-            <div className="hidden md:block">
-              <Posting data={userAuthentication} />
-            </div>
-              )
-            : null}
-          {posts?.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
-        </div>
+        {session !== null
+          ? (
+          <div className="hidden md:block">
+            <Posting data={userAuthentication} />
+          </div>
+            )
+          : null}
+        {posts?.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
       </MiContextoProviderNabvar>
-      <Errorinternet />
       <Buttonpostresponsive />
+      <Errorinternet />
     </main>
   )
 }
