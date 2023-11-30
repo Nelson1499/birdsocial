@@ -11,8 +11,7 @@ export const CommentPost = ({ data, post }: { data: ObjectUser, post: RelationPo
     await addNewComment(formData)
     formRef.current?.reset()
   }
-  const { username, id } = post[0].users
-
+  const { username } = post[0].users
   return (
     <form
       ref={formRef}
@@ -36,7 +35,7 @@ export const CommentPost = ({ data, post }: { data: ObjectUser, post: RelationPo
         className="mx-3 py-2 w-full min-h-[140px]"
       />
       <input type="hidden" name="username" id="username" value={username} />
-      <input type="hidden" name="id_post" id="id_post" value={id} />
+      <input type="hidden" name="id_post" id="id_post" value={post[0].id} />
       <ButtonComment />
       </section>
     </form>

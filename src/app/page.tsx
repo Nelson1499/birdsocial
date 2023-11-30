@@ -1,5 +1,4 @@
 import { Errorinternet } from "@/error/error"
-import { Buttonpostresponsive } from "@/components/button-post/buttonpost"
 import { Posting } from "@/components/form/posting"
 import { Title } from "@/components/header/title"
 import { Post } from "@/components/posting/post"
@@ -32,7 +31,6 @@ export default async function Home () {
   if (session === null) {
     redirect("/login")
   }
-
   return (
     <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
       <MiContextoProviderNabvar>
@@ -48,7 +46,6 @@ export default async function Home () {
           <Post key={post.id} post={post} />
         ))}
       </MiContextoProviderNabvar>
-      <Buttonpostresponsive />
       <Errorinternet />
     </main>
   )
