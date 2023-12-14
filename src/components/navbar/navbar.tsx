@@ -1,6 +1,6 @@
 import FlutterDashIcon from "@mui/icons-material/FlutterDash"
 import { Items } from "@/svg/svg.navbar"
-import { AuthButtonServer } from "../button-auth/authbutton-server"
+import { AuthButtonServer } from "./button-auth/authbutton-server"
 import Link from "next/link"
 import { Buttonpostnavbar } from "../button-post/buttonpostnavbar"
 

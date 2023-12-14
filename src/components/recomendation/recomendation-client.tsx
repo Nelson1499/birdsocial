@@ -27,7 +27,7 @@ const Recomendationclient = ({
         id="id_user_follow"
         value={user.id}
       />
-      <li className="flex justify-between py-5 hover:bg-slate-800 cursor-pointer">
+      <li className="flex justify-between py-5 hover:bg-slate-300 hover:dark:bg-slate-800 cursor-pointer">
         <div className="ml-2 flex space-x-3">
           <Image
             src={user.avatar_url}
@@ -41,7 +41,7 @@ const Recomendationclient = ({
             <h4 className="text-gray-500">@{user.username}</h4>
           </div>
         </div>
-        <button className="mr-2 bg-white rounded-full px-3 h-max py-1 text-black">
+        <button className="mr-2 bg-gray-500 dark:bg-white rounded-full px-3 h-max py-1 text-white dark:text-black">
           { user.followuser !== undefined ? "Seguido" : "Seguir" }
         </button>
       </li>

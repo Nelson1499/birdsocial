@@ -20,7 +20,7 @@ export function AuthLoginClient ({ session }: { session: Session | any }) {
     })
   }
   return (
-    <div className="mx-auto w-60 md:w-80 py-20">
+    <article className="mx-auto w-60 md:w-80 py-20">
       {session === null
         ? (<>
           <h1 className="text-xl md:text-2xl font-extrabold">
@@ -28,13 +28,13 @@ export function AuthLoginClient ({ session }: { session: Session | any }) {
           </h1>
           <button
             onClick={handleSign}
-            className="bg-white text-black w-full py-1 rounded-full mt-10 self-start outline-none"
+            className="bg-white text-lg text-black w-full py-2 rounded-full mt-10 self-start outline-none"
           >
             <GoogleIcon /> Continuar con Google
           </button>
         </>
           )
         : null}
-    </div>
+    </article>
   )
 }

@@ -8,6 +8,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import { useState } from "react"
+import { Darkmode } from "../seccion-navbar-mobile/dark-mode"
 
 export function AuthButton ({
   session,
@@ -26,8 +27,11 @@ export function AuthButton ({
   return (
     <aside className="fixed bottom-3 flex flex-col-reverse items-end h-max">
       <section className="flex-col flex">
-        {(session !== null && show) && <div role="dialog" className="bg-black rounded p-2 shadow shadow-white">
-          <button onClick={handleignOut}>Cerrar la sesión de {users.username}</button>
+        {(session !== null && show) && <div role="dialog" className="bg-white dark:bg-black rounded p-2 shadow shadow-black dark:shadow-white">
+          <ul className="space-y-2">
+            <Darkmode />
+            <li className="cursor-pointer" onClick={handleignOut}>Cerrar la sesión de {users.username}</li>
+          </ul>
         </div>}
         <button className="text-center cursor-pointer hover:bg-black hover:bg-opacity-20 rounded-full p-2 w-max" onClick={() => { setshow(!show) }}>
           {session !== null &&

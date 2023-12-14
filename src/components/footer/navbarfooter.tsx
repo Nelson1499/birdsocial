@@ -33,9 +33,9 @@ export const Navbarfooter = () => {
   }, [lastScrollTop])
 
   return (
-    <footer id="progress" className="flex bottom-0 fixed z-10 w-full">
+    <footer id="progress" className="flex bottom-0 fixed text-white z-10 w-full">
       <Buttonpostresponsive />
-      <div className="bg-emerald-500 py-3 tablet:hidden w-full">
+      <div className="bg-blue-500 dark:bg-black py-3 tablet:hidden w-full">
         <section className="flex m-auto justify-between w-60 md:w-96">
           {IconsFooter?.map((icons, i) => (
             <div

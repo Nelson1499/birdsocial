@@ -5,7 +5,7 @@ export const Post = ({ post }: { post: RelationPost[] | any }) => {
   const { birdtweets, users, likes, id, birdretweets, commentbirdtweets } =
     post as RelationPost
   return (
-    <section className="border-b-2 border-b-white border-opacity-10 py-2 items-center justify-center text-base">
+    <section className="border-b-2 border-b-slate-400 py-2 items-center justify-center text-base">
       <article>
         <figure className="flex mx-2 md:mx-5">
         <Image
@@ -17,9 +17,9 @@ export const Post = ({ post }: { post: RelationPost[] | any }) => {
           alt="perfil"
         />
         <figcaption className="block mx-2 justify-center item-center w-[90%]">
-          <div className="md:flex">
+          <div className="flex">
             <h3>{users.name}</h3>
-            <small className="text-gray-300 md:mx-2">@{users.username}</small>
+            <small className="text-gray-500 mx-1">@{users.username}</small>
           </div>
           <section className="w-[95%] md:w-full">
             <p className="w-full break-words">{birdtweets}</p>

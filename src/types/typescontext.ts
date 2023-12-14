@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from "react"
 export interface MiContextoType {
   showNavbar: boolean
   setShowNavbar: Dispatch<SetStateAction<boolean>>
+  responsiveNavbar: boolean
 }
 export interface MiContextoTypePosting {
   showPosting: boolean

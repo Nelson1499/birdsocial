@@ -3,29 +3,16 @@ import FlutterDashIcon from "@mui/icons-material/FlutterDash"
 import Image from "next/image"
 import type { ObjectUser } from "@/types/typesdata"
 import perfil from "@/images/perfil.jpg"
-import { useState, useEffect } from "react"
-import { Navbarmobile } from "../navbar/navbarmobile"
+// import { useState, useEffect } from "react"
+// import { Navbarmobile } from "../navbar/navbarmobile"
 import { useMiContextoNavbar } from "@/context/navbarcontext"
 import type { MiContextoType } from "@/types/typescontext"
 
 export const Title = ({ data }: { data: ObjectUser }) => {
   const { showNavbar, setShowNavbar }: MiContextoType = useMiContextoNavbar()
-  const [responsiveNavbar, setResponsiveNavbar] = useState(true)
-  useEffect(() => {
-    const handleResize = () => {
-      setResponsiveNavbar(window.innerWidth < 640)
-    }
-
-    window.addEventListener("resize", handleResize)
-    handleResize()
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
   return (
     <>
-      <header className="w-full border-white sticky bg-black top-0 z-10 py-2">
+      <header className="w-full border-white sticky bg-white dark:bg-black top-0 z-10 py-2 shadow-md shadow-slate-500">
         <nav className="h-max flex">
           <div role="button"
             className="grow w-max active:bg-transparent outline-none"
@@ -52,7 +39,6 @@ export const Title = ({ data }: { data: ObjectUser }) => {
           </div>
         </nav>
       </header>
-      {showNavbar && responsiveNavbar ? <Navbarmobile /> : null}
     </>
   )
 }

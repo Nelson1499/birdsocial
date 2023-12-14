@@ -2,11 +2,11 @@ import { Errorinternet } from "@/error/error"
 import { Posting } from "@/components/form/posting"
 import { Title } from "@/components/header/title"
 import { Post } from "@/components/posting/post"
-import { MiContextoProviderNabvar } from "@/context/navbarcontext"
 import { Querypost } from "@/db/supabase_query"
 import { Session } from "@/start/session."
 import type { ObjectUser } from "@/types/typesdata"
 import { redirect } from "next/navigation"
+import { Navbarfooter } from "@/components/footer/navbarfooter"
 
 export default async function Home () {
   const session = await Session()
@@ -32,8 +32,8 @@ export default async function Home () {
     redirect("/login")
   }
   return (
-    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 sm:pb-1 pb-10">
-      <MiContextoProviderNabvar>
+    <>
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-slate-400 sm:pb-1 pb-10">
         <Title data={userAuthentication} />
         {session !== null
           ? (
@@ -45,8 +45,9 @@ export default async function Home () {
         {posts?.map((post) => (
           <Post key={post.id} post={post} />
         ))}
-      </MiContextoProviderNabvar>
       <Errorinternet />
     </main>
+    <Navbarfooter />
+    </>
   )
 }

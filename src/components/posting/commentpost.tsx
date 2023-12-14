@@ -32,7 +32,7 @@ export const Postcomment = ({
             <div className="block ml-2 justify-center item-center">
               <div className="flex">
                 <h3>{users.name}</h3>
-                <small className="text-gray-300 mx-2">@{users.username}</small>
+                <small className="text-gray-500 mx-1">@{users.username}</small>
               </div>
               <div className="w-full break-all">
                 <p>{comment}</p>

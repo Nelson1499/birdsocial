@@ -8,6 +8,7 @@ import { Session } from "@/start/session."
 import { QueryPostAndComments } from "@/db/supabase_query"
 import { likesAndRepost } from "@/utilities/likesandrepost"
 import { Errorinternet } from "@/error/error"
+import { Navbarfooter } from "@/components/footer/navbarfooter"
 
 export default async function Posting ({
   params: { id }
@@ -19,7 +20,8 @@ export default async function Posting ({
   const postcenter = await likesAndRepost({ data, session })
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   return (
-    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-white border-opacity-10 table:pb-1 pb-10">
+    <>
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-slate-400 table:pb-1 pb-10">
       <TitlePost />
       <PostCentral post={postcenter} numcomments={comments?.length} />
       {session !== null && (
@@ -28,7 +30,7 @@ export default async function Posting ({
       {comments?.map((post) => (
         <article
           key={post.id}
-          className="post border-b border-white border-opacity-10"
+          className="post border-b border-slate-400"
         >
           <section className="post-content mx-2 md:mx-5">
             <CommentpostServer post={post} styleData={null} />
@@ -37,5 +39,7 @@ export default async function Posting ({
       ))}
       <Errorinternet />
     </main>
+    <Navbarfooter />
+    </>
   )
 }
