@@ -4,7 +4,7 @@ import { InteractionCentral } from "./interaction-central"
 export const PostCentral = ({ post, numcomments }: { post: RelationPost[], numcomments: number | any }) => {
   const { birdtweets, users, likes, id, birdretweets } = post[0]
   return (
-    <section className="border-b-2 border-b-slate-400 items-center justify-center mx-2 md:mx-5">
+    <section className="border-b border-b-slate-400 items-center justify-center mx-2 md:mx-5">
       <article>
         <figure className="flex my-2">
           <Image

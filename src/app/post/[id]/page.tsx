@@ -8,7 +8,6 @@ import { Session } from "@/start/session."
 import { QueryPostAndComments } from "@/db/supabase_query"
 import { likesAndRepost } from "@/utilities/likesandrepost"
 import { Errorinternet } from "@/error/error"
-import { Navbarfooter } from "@/components/footer/navbarfooter"
 
 export default async function Posting ({
   params: { id }
@@ -21,7 +20,7 @@ export default async function Posting ({
   const userAuthentication = session?.user?.user_metadata as ObjectUser
   return (
     <>
-    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-slate-400 table:pb-1 pb-10">
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x border-slate-400">
       <TitlePost />
       <PostCentral post={postcenter} numcomments={comments?.length} />
       {session !== null && (
@@ -39,7 +38,6 @@ export default async function Posting ({
       ))}
       <Errorinternet />
     </main>
-    <Navbarfooter />
     </>
   )
 }

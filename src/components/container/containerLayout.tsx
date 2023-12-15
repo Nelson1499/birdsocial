@@ -7,7 +7,7 @@ import type { ReactNode } from "react"
 
 export const ContainerLayout = ({ children }: { children: ReactNode }) => {
   const { showPosting } = useMiContexto()
-  const { showNavbar }: MiContextoType = useMiContextoNavbar()
+  const { showNavbar, responsiveNavbar }: MiContextoType = useMiContextoNavbar()
 
   return (
     <section
@@ -15,7 +15,7 @@ export const ContainerLayout = ({ children }: { children: ReactNode }) => {
         showPosting ? "overflow-hidden" : ""
       }`}
     >
-      <article className={`md:w-max w-full h-screen m-auto sm:flex ${showNavbar && "overflow-hidden"}`}>{children}</article>
+      <article className={`md:w-max w-full h-screen m-auto sm:flex ${showNavbar && responsiveNavbar && "overflow-hidden"}`}>{children}</article>
     </section>
   )
 }

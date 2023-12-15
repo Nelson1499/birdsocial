@@ -33,7 +33,7 @@ export default async function Home () {
   }
   return (
     <>
-    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x-2 border-slate-400 sm:pb-1 pb-10">
+    <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x border-slate-400 sm:pb-1 pb-10">
         <Title data={userAuthentication} />
         {session !== null
           ? (

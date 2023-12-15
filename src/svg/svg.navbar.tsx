@@ -20,7 +20,7 @@ export const Items = () => [
     link: "/notifications"
   },
   {
-    title: "Mensaje",
+    title: "Mensajes",
     icon: MailOutlineIcon,
     link: "/messages"
   },

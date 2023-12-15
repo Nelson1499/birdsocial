@@ -10,6 +10,7 @@ const Recomendation = async () => {
   const { data } = await supabase
     .from("users")
     .select("*, follow(*)")
+    .not("id", "eq", session?.user?.id)
     .order("created_at", { ascending: false })
   const userFollow = data?.map((user) => ({
     ...user,

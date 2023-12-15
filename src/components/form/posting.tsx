@@ -24,7 +24,7 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
     <form
       ref={formRef}
       action={addPost}
-      className="flex border-b-2 border-slate-400 py-1 my-2"
+      className="flex border-b border-slate-400 py-1 my-2"
     >
       <section className="flex mx-2 md:mx-5 w-full">
         <Image

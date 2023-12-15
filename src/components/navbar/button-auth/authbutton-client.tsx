@@ -33,10 +33,10 @@ export function AuthButton ({
             <li className="cursor-pointer" onClick={handleignOut}>Cerrar la sesión de {users.username}</li>
           </ul>
         </div>}
-        <button className="text-center cursor-pointer hover:bg-black hover:bg-opacity-20 rounded-full p-2 w-max" onClick={() => { setshow(!show) }}>
+        <button className="text-center cursor-pointer hover:bg-black hover:bg-opacity-20 rounded-full desktop:p-2 w-max" onClick={() => { setshow(!show) }}>
           {session !== null &&
           (
-            <div className="flex">
+            <div className="flex desktop:space-x-1">
               <Image
                 className="lg:w-10 lg:h-10 w-8 h-8 rounded-full"
                 src={users?.avatar_url}

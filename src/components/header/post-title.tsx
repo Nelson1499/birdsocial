@@ -7,7 +7,7 @@ export const TitlePost = () => {
     router.back()
   }
   return (
-    <header className="w-full h-[53px] border-opacity-10 bg-white dark:bg-black sticky top-0 z-10">
+    <header className="w-full h-[53px] border-opacity-10 bg-white dark:bg-black sticky top-0 shadow shadow-slate-500 z-10">
       <nav className="items-center py-2 flex">
         <button className="active:outline-none" onClick={navigation}>
           <ArrowBackIcon />

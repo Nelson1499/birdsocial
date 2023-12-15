@@ -16,7 +16,7 @@ export const CommentPost = ({ data, post }: { data: ObjectUser, post: RelationPo
     <form
       ref={formRef}
       action={addPost}
-      className="my-2 justify-center items-center border-b-2 border-b-slate-400"
+      className="my-2 justify-center items-center border-b border-b-slate-400"
     >
       <section className="flex mx-2 md:mx-5">
       <Image

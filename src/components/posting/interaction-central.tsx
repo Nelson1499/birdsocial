@@ -57,7 +57,7 @@ export const InteractionCentral = ({
   }
   return (
     <>
-      <div className="flex h-max m-auto border-t-2 border-slate-400 w-full items-center">
+      <div className="flex h-max m-auto border-t border-slate-400 w-full items-center">
         <div className="space-x-5 flex mx-2">
           <span className="flex">
             {numcomments}
@@ -73,7 +73,7 @@ export const InteractionCentral = ({
           </span>
         </div>
       </div>
-      <div className="flex h-10 m-auto border-t-2 border-slate-400 w-full items-center">
+      <div className="flex h-10 m-auto border-t border-slate-400 w-full items-center">
         <div className="m-auto flex w-64 justify-between">
           <button className="p-1 rounded-full hover:bg-sky-500 hover:bg-opacity-30 mr-1 hover:text-sky-500">
             <ChatBubbleOutlineIcon className="text-2xl" />
