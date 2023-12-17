@@ -6,7 +6,7 @@ import Recomendation from "@/components/recomendation/recomendation"
 import { MiContextoProvider } from "@/context/postingcontext"
 import { ContainerPost } from "@/components/container/containerform-post"
 import { ContainerLayout } from "@/components/container/containerLayout"
-import { Session } from "@/start/session."
+import { Session } from "@/start/session"
 import { Navbarmobile } from "@/components/navbar/navbarmobile"
 import { MiContextoProviderNabvar } from "@/context/navbarcontext"
 

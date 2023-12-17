@@ -21,7 +21,7 @@ export const Recomendationmobile = async () => {
   const userAuthentication: number | any = session?.user?.id
   return (
     <article className="w-full border-b border-slate-400 items-center justify-center">
-      <h3 className="mx-2">A quien Seguir</h3>
+      <h3 className="mx-2">A quien seguir</h3>
 
       {userFollow?.map((user: userfollow) => (
         <Recomendationmobileclient

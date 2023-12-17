@@ -47,7 +47,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
             onClick={handleClickEnPost}
           >
             <button
-              className="px-1 pb-3 cursor-pointer"
+              className="px-1 pb-3 cursor-pointer text-white"
               onClick={() => {
                 setShowPosting(false)
               }}

@@ -22,7 +22,7 @@ const Recomendation = async () => {
   return (
     <article className="w-72 hidden lg:block transition ease-out delay-75">
       <div className="fixed border-2 border-slate-400 rounded my-5 mx-2 xl:mx-5">
-        <h3 className="mx-2">A quien Seguir</h3>
+        <h3 className="mx-2">A quien seguir</h3>
         <ul>
           {userFollow?.map((user: userfollow) => (
             <Recomendationclient

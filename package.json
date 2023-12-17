@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "gen:types": "npx supabase gen types typescript --project-id dufjrrlimwmdfukfrxoj > ./src/types/database.ts",
-    "formatear": "npx eslint --fix src/**/*.*"
+    "formatear": "npx eslint --fix src/**/*.*",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^0.1.2",
