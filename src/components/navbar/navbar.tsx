@@ -18,7 +18,7 @@ export const Navbar = () => {
               className="my-2 text-2xl cursor-pointer w-full justify-center"
               key={item.title}
             >
-              <Link href={item.link}>
+              <Link href={item.link} prefetch={false}>
                 <li className="rounded-3xl text-lg flex w-max hover:bg-black hover:bg-opacity-20 p-2 space-x-1">
                   <item.icon fontSize="medium" />
                   <strong className="hidden desktop:block transition-all font-bold">
