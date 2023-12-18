@@ -3,6 +3,7 @@ import { Deletefollowing, following } from "@/actions/follow-users"
 import type { userfollow } from "@/types/typesdata"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { Buttonfollow } from "./button/button-follow"
 
 export const Recomendationmobileclient = ({
   user,
@@ -42,9 +43,7 @@ export const Recomendationmobileclient = ({
             <h4 className="text-gray-500">@{user.username}</h4>
           </div>
         </div>
-        <button className="mr-2 bg-gray-500 dark:bg-white rounded-full px-3 h-max py-1 text-white dark:text-black">
-          {user.followuser !== undefined ? "Seguido" : "Seguir"}
-        </button>
+        <Buttonfollow follow={user.followuser } />
       </li>
     </form>
   )
