@@ -34,7 +34,7 @@ export const Postcomment = ({
                 <h3>{users.name}</h3>
                 <small className="text-gray-500 mx-1">@{users.username}</small>
               </div>
-              <div className="w-full break-all">
+              <div className="w-full break-words">
                 <p>{comment}</p>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const PostCentral = ({ post, numcomments }: { post: RelationPost[], numco
             <h3 className="text-gray-500 ">@{users.username}</h3>
           </figcaption>
         </figure>
-        <section className="w-full p-2 break-all">
+        <section className="w-full p-2 break-words">
           <p>{birdtweets}</p>
         </section>
       </article>
