@@ -22,6 +22,10 @@
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-misused-promises": "off",
-        "@typescript-eslint/quotes": ["error", "double"]
+        "@typescript-eslint/quotes": [
+            "error",
+            "double"
+        ],
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 }

@@ -10,11 +10,18 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "lh3.googleusercontent.com",
+      port: ""
+    }],
+
   },
-  experimental: {
-    serverActions: true,
+  webpack: (config, { isServer }) => {
+    isServer && (config.externals = [...config.externals,  'socket.io-client']);
+    return config;
   },
+  
 };
 
 module.exports = nextConfig;

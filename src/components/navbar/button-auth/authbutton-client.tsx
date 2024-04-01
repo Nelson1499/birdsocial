@@ -1,5 +1,5 @@
 "use client"
-import type { PostRelationDatabase } from "@/types/typesdata"
+import type { UsersDB } from "@/types/typesdata"
 import {
   type Session,
   createClientComponentClient
@@ -15,7 +15,7 @@ export function AuthButton ({
   users
 }: {
   session: Session | null
-  users: PostRelationDatabase
+  users: UsersDB
 }) {
   const [show, setshow] = useState(false)
   const supabase = createClientComponentClient()

@@ -8,6 +8,7 @@ import type { ObjectUser } from "@/types/typesdata"
 import { redirect } from "next/navigation"
 import { Navbarfooter } from "@/components/footer/navbarfooter"
 import { Recomendationmobile } from "@/components/recomendation/recomendation-mobile"
+import Recomendation from "@/components/recomendation/recomendation"
 
 export default async function Home () {
   const session = await Session()
@@ -34,23 +35,24 @@ export default async function Home () {
   }
   return (
     <>
-      <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x border-slate-400 sm:pb-1 pb-10">
-        <Title data={userAuthentication} />
-        {session !== null
-          ? (
-          <div className="hidden md:block">
-            <Posting data={userAuthentication} />
-          </div>
-            )
-          : null}
-        {posts?.map((post, i) => (
-          <>
-            <Post key={post.id} post={post} />
-            {i % 10 === 0 && <Recomendationmobile />}
-          </>
-        ))}
-        <Errorinternet />
-      </main>
+      <div className="flex">
+        <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x border-slate-400 sm:pb-1 pb-10">
+          <Title data={userAuthentication} />
+          {session !== null ? (
+            <div className="hidden md:block">
+              <Posting data={userAuthentication} />
+            </div>
+          ) : null}
+          {posts?.map((post, i) => (
+            <>
+              <Post key={post.id} post={post} />
+              {i % 10 === 0 && <Recomendationmobile />}
+            </>
+          ))}
+          <Errorinternet />
+        </main>
+        {session !== null && <Recomendation />}
+      </div>
       <Navbarfooter />
     </>
   )
