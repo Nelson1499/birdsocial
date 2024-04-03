@@ -82,8 +82,8 @@ export type userfollow = UsersDB & { follow: followDatabase[] } & {
 export interface Group {
   id: string
   created_at: Date
-  usuario1: string
-  usuario2: string
+  usuario1: string | null
+  usuario2: string | null
   message: string
   name: string
   username: string

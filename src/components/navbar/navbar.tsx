@@ -7,7 +7,7 @@ import { Buttonpostnavbar } from "../button-post/buttonpostnavbar"
 export const Navbar = () => {
   const items = Items()
   return (
-    <header className="hidden tablet:block tablet:w-[50px] desktop:w-[215px] h-full transition-all ease-in-out delay-75">
+    <header className="hidden tablet:block tablet:w-[50px] desktop:w-[215px] h-full transition-all ease-in-out delay-75 z-10">
       <nav className="fixed mt-2 mx-1">
           <div className="px-1 font-bold flex text-xl space-x-1">
             <FlutterDashIcon fontSize="large" />

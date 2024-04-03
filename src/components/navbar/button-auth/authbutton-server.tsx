@@ -1,4 +1,3 @@
-import type { PostRelationDatabase } from "@/types/typesdata"
 import { AuthButton } from "./authbutton-client"
 import { Componentclient } from "@/componentsclients/component-client"
 
@@ -12,7 +11,7 @@ export async function AuthButtonServer () {
     .from("users")
     .select("*")
     .eq("id", id ?? "")
-  const user: PostRelationDatabase[] = data ?? []
+  const user = data ?? []
   if (user !== null) {
     return <AuthButton users={user[0]} session={session} />
   }

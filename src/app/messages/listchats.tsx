@@ -15,7 +15,7 @@ export const ListChat = ({ group, id }: { group: Group | any, id: string | any }
     userid
   } = group as Group
   return (
-    <ul className={`hover:bg-black hover:bg-opacity-10 ${id === iduser && "bg-black bg-opacity-10"}`}>
+    <ul className={`w-full flex hover:bg-black hover:bg-opacity-10 ${id === iduser && "bg-black bg-opacity-10"}`}>
       <Link href={`/messages/${iduser}`}>
         <li className="mx-5 py-2 flex space-x-2">
           <Image

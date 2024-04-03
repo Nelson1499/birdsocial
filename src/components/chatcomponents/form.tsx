@@ -46,7 +46,7 @@ export const FormMessage = ({ id }: { id: string }) => {
           className="w-full outline-none bg-transparent"
           name="message"
           id="message"
-          placeholder="Mensagge"
+          placeholder="Mensaje"
         />
         <button type="submit" className="hover:text-blue-500">
           Enviar

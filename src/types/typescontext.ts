@@ -8,3 +8,8 @@ export interface MiContextoTypePosting {
   showPosting: boolean
   setShowPosting: Dispatch<SetStateAction<boolean>>
 }
+
+export interface MiContextoTypeSearch {
+  character: string
+  setCharacter: Dispatch<SetStateAction<string>>
+}
