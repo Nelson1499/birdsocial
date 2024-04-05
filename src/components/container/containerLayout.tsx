@@ -15,7 +15,7 @@ export const ContainerLayout = ({ children }: { children: ReactNode }) => {
         showPosting ? "overflow-hidden" : ""
       }`}
     >
-      <article className={`md:w-max w-full h-screen m-auto sm:flex ${showNavbar && responsiveNavbar && "overflow-hidden"}`}>{children}</article>
+      <article className={`sm:w-max w-full h-screen m-auto sm:flex ${showNavbar && responsiveNavbar && "overflow-hidden"}`}>{children}</article>
     </section>
   )
 }

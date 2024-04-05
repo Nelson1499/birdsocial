@@ -1,7 +1,7 @@
 import { Componentclient } from "@/componentsclients/component-client"
 import Image from "next/image"
 import profile from "@/images/perfil.jpg"
-
+import Headerconver from "./header"
 const Coverconversation = async ({ id }: { id: string }) => {
   const supabase = Componentclient()
   const { data } = await supabase
@@ -10,10 +10,8 @@ const Coverconversation = async ({ id }: { id: string }) => {
     .eq("id", id)
     .single()
   return (
-    <section className="w-full border-b-2 border-slate-400 ">
-      <header className="dark:bg-black bg-opacity-75 p-2">
-        <h1 className="font-bold">{data?.name}</h1>
-      </header>
+    <section className="w-full border-b border-slate-400 ">
+      <Headerconver name={data?.name} />
       <div className="m-auto w-full items-center text-center justify-center mt-2">
         <Image
           className="rounded-full m-auto"

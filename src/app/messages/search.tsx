@@ -20,6 +20,7 @@ export const SearchMessage = () => {
           id="searchmessage"
           onChange={characterupdate}
           className="outline-none bg-transparent w-full"
+          placeholder="Intenta buscar personas."
         />
       </label>
     </section>

@@ -7,7 +7,7 @@ import { ContainerLayout } from "@/components/container/containerLayout"
 import { Session } from "@/start/session"
 import { Navbarmobile } from "@/components/navbar/navbarmobile"
 import { MiContextoProviderNabvar } from "@/context/navbarcontext"
-// import { SocketProvider } from "@/context/socketIO"
+import FooterLogin from "@/components/footer/footerLogin"
 
 export const metadata: Metadata = {
   title: "Birdosocial",
@@ -40,6 +40,7 @@ export default async function RootLayout ({
             </ContainerLayout>
           </MiContextoProviderNabvar>
         </MiContextoProvider>
+        <FooterLogin />
       </body>
     </html>
   )

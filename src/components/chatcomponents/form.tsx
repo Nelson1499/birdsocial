@@ -38,7 +38,7 @@ export const FormMessage = ({ id }: { id: string }) => {
     <form
       ref={formRef}
       action={handleAction}
-      className="fixed bottom-0 w-[500px] m-auto p-2 "
+      className="fixed bottom-0 w-full tablet:w-[500px] m-auto p-2 "
     >
       <div className="outline outline-1 flex w-full p-2 rounded-md dark:text-white bg-white dark:bg-black">
         <input

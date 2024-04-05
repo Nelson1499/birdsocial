@@ -20,8 +20,8 @@ export const IconsFooter = [
     link: "/notification"
   },
   {
-    title: "Message",
+    title: "Messages",
     icon: EmailIcon,
-    link: "/message"
+    link: "/messages"
   }
 ]

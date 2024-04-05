@@ -20,18 +20,18 @@ export default async function chatprivate({
   return (
     <div className="flex h-screen overflow-hidden">
       <MiContextoProviderSearch>
-        <article className="w-full md:w-[453px] hidden lg:block overflow-auto sticky top-0 h-full sm:border-x border-slate-400">
+        <article className="w-full md:w-[453px] hidden lg:block overflow-auto h-screen sticky top-0 border-l border-slate-400">
           <SearchMessage />
           <Containerlist message={message} session={session?.user.id} />
         </article>
-        <section className="flex-grow z-0 md:w-[550px] overflow-auto sticky top-0 border-r border-slate-400">
+        <section className="flex-grow z-0 w-[600px] overflow-auto sticky top-0 h-screen sm:border-x border-slate-400">
           <Coverconversation id={id} />
           <ul className="w-full mt-2 px-2 space-y-2 pb-16">
             {privatem?.map((p, i) => (
               <Privatechat key={i} messages={p} />
             ))}
           </ul>
-          <div className="flex items-center justify-center relative">
+          <div className="flex items-center justify-center relative bg-transparent">
             <FormMessage id={id} />
           </div>
         </section>

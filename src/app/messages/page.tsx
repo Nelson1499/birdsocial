@@ -12,7 +12,7 @@ export default async function chat () {
   return (
     <div className="flex">
       <MiContextoProviderSearch>
-        <article className="w-full lg:w-[453px] z-0 overflow-auto sticky sm:border-x border-slate-400 h-screen">
+        <article className="w-full tablet:w-[600px] lg:w-[400px] z-0 overflow-auto sticky sm:border-x border-slate-400 h-screen">
           <SearchMessage />
           <Containerlist message={ message } session={session?.user.id} />
         </article>

@@ -21,9 +21,9 @@ export const ListChat = ({ group, id }: { group: Group | any, id: string | any }
           <Image
             src={avatar}
             alt="perfil"
-            width={500}
-            height={500}
-            className="w-16 h-16 rounded-full"
+            width={200}
+            height={200}
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full"
           />
           <div>
             <div className="flex space-x-1">
