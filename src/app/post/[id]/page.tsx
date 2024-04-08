@@ -9,6 +9,7 @@ import { QueryPostAndComments } from "@/db/supabase_query"
 import { likesAndRepost } from "@/utilities/likesandrepost"
 import { Errorinternet } from "@/error/error"
 import Recomendation from "@/components/recomendation/recomendation"
+import RecomendationLogin from "@/components/recomendation/login/recomendation-login"
 
 export default async function Posting ({
   params: { id }
@@ -28,7 +29,7 @@ export default async function Posting ({
           {session !== null && (
             <CommentPost data={userAuthentication} post={postcenter} />
           )}
-          {comments?.map((post) => (
+          {session !== null && comments?.map((post) => (
             <article key={post.id} className="post border-b border-slate-400">
               <section className="post-content mx-2 md:mx-5">
                 <CommentpostServer post={post} styleData={null} />
@@ -37,7 +38,7 @@ export default async function Posting ({
           ))}
           <Errorinternet />
         </main>
-        {session !== null && <Recomendation />}
+        {session !== null ? <Recomendation /> : <RecomendationLogin />}
       </div>
     </>
   )

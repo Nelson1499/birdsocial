@@ -3,8 +3,9 @@ import { Items } from "@/svg/svg.navbar"
 import { AuthButtonServer } from "./button-auth/authbutton-server"
 import Link from "next/link"
 import { Buttonpostnavbar } from "../button-post/buttonpostnavbar"
+import type { Session } from "@supabase/auth-helpers-nextjs"
 
-export const Navbar = () => {
+export const Navbar = ({ session }: { session: Session | any }) => {
   const items = Items()
   return (
     <header className="hidden tablet:block tablet:w-[50px] desktop:w-[215px] h-full transition-all ease-in-out delay-75 z-10">
@@ -13,7 +14,7 @@ export const Navbar = () => {
             <FlutterDashIcon fontSize="large" />
             <h2 className="hidden desktop:block transition-all">Birdsocial</h2>
           </div>
-          {items.map((item) => (
+          {session !== null && items.map((item) => (
             <ul
               className="my-2 text-2xl cursor-pointer w-full justify-center"
               key={item.title}
@@ -28,7 +29,7 @@ export const Navbar = () => {
               </Link>
             </ul>
           ))}
-          <Buttonpostnavbar />
+          { session !== null && <Buttonpostnavbar />}
           <AuthButtonServer />
         </nav>
     </header>

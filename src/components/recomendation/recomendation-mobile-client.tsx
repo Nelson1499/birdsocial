@@ -22,7 +22,7 @@ export const Recomendationmobileclient = ({
     router.refresh()
   }
   return (
-    <form className="w-96 m-auto" action={submitForm}>
+    <form className="w-full px-2 m-auto" action={submitForm}>
       <input
         type="hidden"
         name="id_user_follow"

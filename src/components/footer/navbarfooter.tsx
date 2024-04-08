@@ -4,8 +4,9 @@ import { useRouter } from "next/navigation"
 import { IconsFooter } from "./iconsfooter"
 import { useEffect, useState } from "react"
 import { Buttonpostresponsive } from "../button-post/buttonpost"
+import { Session } from "@supabase/auth-helpers-nextjs"
 
-export const Navbarfooter = () => {
+export const Navbarfooter = ({ session }: { session: Session | any }) => {
   const [lastScrollTop, setLastScrollTop] = useState(0)
   const router = useRouter()
   const navigation = (path: string) => {
@@ -33,8 +34,11 @@ export const Navbarfooter = () => {
   }, [lastScrollTop])
 
   return (
-    <footer id="progress" className="flex bottom-0 fixed text-white z-10 w-full">
-      <Buttonpostresponsive />
+    <footer
+      id="progress"
+      className="flex bottom-0 fixed text-white z-10 w-full"
+    >
+      {session !== null && <Buttonpostresponsive />}
       <div className="bg-blue-500 dark:bg-black py-3 tablet:hidden w-full">
         <section className="flex m-auto justify-between w-60 md:w-96">
           {IconsFooter?.map((icons, i) => (

@@ -5,7 +5,7 @@ import profileuser from "@/images/perfil.jpg"
 import AddIcon from "@mui/icons-material/Add"
 import type {
   ObjectUser,
-  PostRelationDatabase,
+  UsersDB,
   followDatabase
 } from "@/types/typesdata"
 import { useCallback, useEffect, useState } from "react"
@@ -25,7 +25,7 @@ export const Profile = ({
 }) => {
   const [follow, setFollow] = useState<followDatabase[]>([])
   const [following, setFollowing] = useState<followDatabase[]>([])
-  const [user, setUser] = useState<PostRelationDatabase[]>([])
+  const [user, setUser] = useState<UsersDB[]>([])
   const supabase = createClientComponentClient()
   const { showNavbar }: MiContextoType = useMiContextoNavbar()
   const router = useRouter()
@@ -62,11 +62,11 @@ export const Profile = ({
         <ul className="flex justify-between">
           <li
             onClick={() => {
-              router.push(`/${user[0]?.username}`)
+              session !== null && router.push(`/${user[0]?.username}`)
             }}
           >
             <Image
-              className="rounded-full w-10 h-10"
+              className="rounded-full w-10 h-10 outline-1"
               src={user[0]?.avatar_url ?? profileuser}
               alt="Imagen de perfil"
               width={100}

@@ -8,15 +8,25 @@ import type { MouseEvent } from "react"
 import { Darkmode } from "./seccion-navbar-mobile/dark-mode"
 import { useRouter } from "next/navigation"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-export const Navbarmobile = ({ data, session }: { data: ObjectUser | any, session: Session | any }) => {
+import Listaslogin from "../list/listaslogin"
+export const Navbarmobile = ({
+  data,
+  session
+}: {
+  data: ObjectUser | any
+  session: Session | any
+}) => {
   const router = useRouter()
   const supabase = createClientComponentClient()
-  const { showNavbar, responsiveNavbar, setShowNavbar }: MiContextoType = useMiContextoNavbar()
+  const { showNavbar, responsiveNavbar, setShowNavbar }: MiContextoType =
+    useMiContextoNavbar()
   const out = () => {
     setShowNavbar(false)
   }
 
-  const handleClickEnPost = (e: MouseEvent<HTMLDivElement | HTMLFormElement>) => {
+  const handleClickEnPost = (
+    e: MouseEvent<HTMLDivElement | HTMLFormElement>
+  ) => {
     e.stopPropagation()
   }
   const handleignOut = async () => {
@@ -25,15 +35,31 @@ export const Navbarmobile = ({ data, session }: { data: ObjectUser | any, sessio
     router.refresh()
   }
   return (
-    <nav onClick={out} className={`fixed left-0 w-screen h-screen flex z-20 bg-opacity-10 dark:bg-opacity-10 bg-black dark:bg-white ${responsiveNavbar ? !showNavbar ? "hidden" : "block" : "hidden"}`}>
-      <div onClick={handleClickEnPost} className="bg-white dark:bg-black fixed left-0 w-9/12 h-screen">
-        <Profile profile={data} session={session} />
+    <nav
+      onClick={out}
+      className={`fixed left-0 w-screen h-screen flex z-20 bg-opacity-10 dark:bg-opacity-10 bg-black dark:bg-white ${
+        responsiveNavbar ? (!showNavbar ? "hidden" : "block") : "hidden"
+      }`}
+    >
+      <div
+        onClick={handleClickEnPost}
+        className="bg-white dark:bg-black fixed left-0 w-9/12 h-screen"
+      >
+        {session !== null && <Profile profile={data} session={session} />}
         <section>
-          <ul className="mx-2">
-            <li className="row-span-1">Perfil</li>
-            <Darkmode />
-            <li className="row-span-1 cursor-pointer" onClick={handleignOut}>Cerrar sesión</li>
-          </ul>
+          {session !== null ? (
+            <ul className="mx-2">
+              <li className="row-span-1">Perfil</li>
+              <Darkmode />
+              <li className="row-span-1 cursor-pointer" onClick={handleignOut}>
+                Cerrar sesión
+              </li>
+            </ul>
+          ) : (
+            <ul className="px-5 space-y-2 mt-2">
+              <Listaslogin />
+            </ul>
+          )}
         </section>
       </div>
     </nav>

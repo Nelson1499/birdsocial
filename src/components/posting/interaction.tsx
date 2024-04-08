@@ -71,9 +71,7 @@ export const Interaction = ({ data }: { data: InteractionPost }) => {
           <button onClick={handleRePost} className="p-1 rounded-full hover:bg-green-500 hover:bg-opacity-30 mr-1">
             <RepeatIcon
               className={`hover:text-green-500 ${
-                birdretweets.user_has_repost_post !== undefined
-                  ? "text-green-500"
-                  : "text-white"
+                birdretweets.user_has_repost_post !== undefined && "text-green-500"
               }`}
             />
           </button>

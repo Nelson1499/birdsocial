@@ -5,10 +5,10 @@ import { Post } from "@/components/posting/post"
 import { Querypost } from "@/db/supabase_query"
 import { Session } from "@/start/session"
 import type { ObjectUser } from "@/types/typesdata"
-import { redirect } from "next/navigation"
 import { Navbarfooter } from "@/components/footer/navbarfooter"
 import { Recomendationmobile } from "@/components/recomendation/recomendation-mobile"
 import Recomendation from "@/components/recomendation/recomendation"
+import RecomendationLogin from "@/components/recomendation/login/recomendation-login"
 
 export default async function Home () {
   const session = await Session()
@@ -30,9 +30,6 @@ export default async function Home () {
       }
     })) ?? []
   const userAuthentication = session?.user?.user_metadata as ObjectUser
-  if (session === null) {
-    redirect("/login")
-  }
   return (
     <>
       <div className="flex">
@@ -46,14 +43,14 @@ export default async function Home () {
           {posts?.map((post, i) => (
             <>
               <Post key={post.id} post={post} />
-              {i % 10 === 0 && <Recomendationmobile />}
+              {(i % 10 === 0 && i > 0 && session !== null) && <Recomendationmobile />}
             </>
           ))}
           <Errorinternet />
         </main>
-        {session !== null && <Recomendation />}
+        {session !== null ? <Recomendation /> : <RecomendationLogin />}
       </div>
-      <Navbarfooter />
+      <Navbarfooter session={session} />
     </>
   )
 }
