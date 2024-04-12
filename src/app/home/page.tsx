@@ -35,11 +35,13 @@ export default async function Home () {
       <div className="flex">
         <main className="tablet:w-[600px] w-full min-h-screen h-max sm:border-x border-slate-400 sm:pb-1 pb-10">
           <Title data={userAuthentication} />
-          {session !== null ? (
+          {session !== null
+            ? (
             <div className="hidden md:block">
               <Posting data={userAuthentication} />
             </div>
-          ) : null}
+              )
+            : null}
           {posts?.map((post, i) => (
             <>
               <Post key={post.id} post={post} />

@@ -3,6 +3,7 @@ export interface MiContextoType {
   showNavbar: boolean
   setShowNavbar: Dispatch<SetStateAction<boolean>>
   responsiveNavbar: boolean
+  pathname: string
 }
 export interface MiContextoTypePosting {
   showPosting: boolean

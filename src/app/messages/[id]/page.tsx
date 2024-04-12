@@ -1,15 +1,15 @@
 import { Querymessage, Querymessageprivate } from "@/db/supabase_query_message"
 import { SearchMessage } from "../search"
-import { Paramstypes } from "@/types/paramsTypes"
+import { type Paramstypes } from "@/types/paramsTypes"
 import Privatechat from "./privatechat"
 import Coverconversation from "./cover"
 import { FormMessage } from "@/components/chatcomponents/form"
 import Containerlist from "../containerlist"
 import { Session } from "@/start/session"
-import { Group } from "@/types/typesdata"
+import { type Group } from "@/types/typesdata"
 import { MiContextoProviderSearch } from "@/context/searchcontext"
 
-export default async function chatprivate({
+export default async function chatprivate ({
   params: { id }
 }: {
   params: Paramstypes

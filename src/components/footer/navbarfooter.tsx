@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { IconsFooter } from "./iconsfooter"
 import { useEffect, useState } from "react"
 import { Buttonpostresponsive } from "../button-post/buttonpost"
-import { Session } from "@supabase/auth-helpers-nextjs"
+import { type Session } from "@supabase/auth-helpers-nextjs"
 
 export const Navbarfooter = ({ session }: { session: Session | any }) => {
   const [lastScrollTop, setLastScrollTop] = useState(0)

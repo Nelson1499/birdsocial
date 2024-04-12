@@ -4,7 +4,7 @@ import Messagenew from "./messagenew"
 import { Session } from "@/start/session"
 import { MiContextoProviderSearch } from "@/context/searchcontext"
 import Containerlist from "./containerlist"
-import { Group } from "@/types/typesdata"
+import { type Group } from "@/types/typesdata"
 
 export default async function chat () {
   const message = await Querymessage() as Group[] | any[]

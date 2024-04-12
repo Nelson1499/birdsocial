@@ -1,14 +1,14 @@
 "use client"
 import SearchIcon from "@mui/icons-material/Search"
 import ClearIcon from "@mui/icons-material/Clear"
-import { type ChangeEvent, useState, Fragment, use } from "react"
+import { type ChangeEvent, useState, Fragment } from "react"
 import { SearchUsers } from "@/db/supabase_search_users"
-import { UsersDB } from "@/types/typesdata"
+import { type UsersDB } from "@/types/typesdata"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 type SetShowList = (value: boolean) => void
-export default function Listusers({
+export default function Listusers ({
   setshowList,
   session
 }: {
@@ -21,7 +21,7 @@ export default function Listusers({
   const showusers = async (e: ChangeEvent<HTMLInputElement>) => {
     serCharacter(e.target.value)
     const data = await SearchUsers({ name: e.target.value, id: session })
-    if (data) setusers(data)
+    if (data !== null) setusers(data)
   }
   const navigation = (id: string) => {
     router.push(`/messages/${id}`)
@@ -53,7 +53,8 @@ export default function Listusers({
           </div>
         </header>
         <ul className="w-full flex- justify-center items-center">
-          {character ? (
+          {character !== ""
+            ? (
             <Fragment>
               {users?.map((user, i) => (
                 <li
@@ -77,9 +78,10 @@ export default function Listusers({
                 </li>
               ))}
             </Fragment>
-          ) : (
+              )
+            : (
             <li className="text-center pt-10 font-semibold text-xl">Intenta buscar personas.</li>
-          )}
+              )}
         </ul>
       </div>
     </>

@@ -47,7 +47,8 @@ export const Navbarmobile = ({
       >
         {session !== null && <Profile profile={data} session={session} />}
         <section>
-          {session !== null ? (
+          {session !== null
+            ? (
             <ul className="mx-2">
               <li className="row-span-1">Perfil</li>
               <Darkmode />
@@ -55,11 +56,12 @@ export const Navbarmobile = ({
                 Cerrar sesión
               </li>
             </ul>
-          ) : (
+              )
+            : (
             <ul className="px-5 space-y-2 mt-2">
               <Listaslogin />
             </ul>
-          )}
+              )}
         </section>
       </div>
     </nav>
