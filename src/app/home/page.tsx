@@ -52,7 +52,7 @@ export default async function Home () {
         </main>
         {session !== null ? <Recomendation /> : <RecomendationLogin />}
       </div>
-      <Navbarfooter session={session} />
+      <Navbarfooter sec="home" session={session} />
     </>
   )
 }

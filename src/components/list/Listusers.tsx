@@ -29,7 +29,7 @@ export default function Listusers ({
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-75 z-20"></div>
-      <div className="w-[480px] h-[600px] bg-white dark:bg-black shadow shadow-gray-600 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20">
+      <div className="w-screen h-screen tablet:w-[480px] tablet:h-[600px] text-black bg-white dark:bg-black dark:text-white shadow shadow-gray-600 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 tablet:rounded-lg z-20">
         <header className="border-b-2 border-gray-700">
           <div className="p-2 space-y-2">
             <div className="flex space-x-2">
