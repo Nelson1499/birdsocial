@@ -14,3 +14,8 @@ export interface MiContextoTypeSearch {
   character: string
   setCharacter: Dispatch<SetStateAction<string>>
 }
+
+export interface MiContextShowList {
+  showList: boolean
+  setshowList: Dispatch<SetStateAction<boolean>>
+}

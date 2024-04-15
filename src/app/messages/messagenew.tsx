@@ -1,10 +1,11 @@
 "use client"
 
 import Listusers from "@/components/list/Listusers"
-import { Fragment, useState } from "react"
+import { useMiContextListUser } from "@/context/contextListUser"
+import { Fragment } from "react"
 
 const Messagenew = ({ session }: { session: string | undefined }) => {
-  const [showList, setshowList] = useState(false)
+  const { showList, setshowList } = useMiContextListUser()
   return (
     <Fragment>
       <section className="hidden lg:visible lg:w-[500px] lg:flex border-r border-slate-400 justify-center items-center">
