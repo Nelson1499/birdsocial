@@ -38,12 +38,12 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
       {showPosting && (
         <aside
           onClick={out}
-          className="fixed left-0 w-screen h-screen flex items-center justify-center bg-white bg-opacity-10 z-20"
+          className="fixed left-0 w-screen h-screen object-contain flex items-center justify-center bg-white bg-opacity-10 z-20"
         >
           <form
             ref={formRef}
             action={addPost}
-            className="bg-zinc-900 p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative"
+            className="bg-zinc-900 p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative "
             onClick={handleClickEnPost}
           >
             <button
