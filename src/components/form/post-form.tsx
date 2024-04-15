@@ -43,16 +43,16 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
           <form
             ref={formRef}
             action={addPost}
-            className="bg-zinc-900 p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative "
+            className="bg-zinc-900 text-white p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative "
             onClick={handleClickEnPost}
           >
             <button
-              className="px-1 pb-3 cursor-pointer text-white"
+              className="px-1 pb-3 cursor-pointer"
               onClick={() => {
                 setShowPosting(false)
               }}
             >
-              <CloseIcon />
+              <CloseIcon /> Salir
             </button>
             <section className="flex w-full h-full">
               <Image
