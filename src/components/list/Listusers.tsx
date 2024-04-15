@@ -29,10 +29,10 @@ export default function Listusers ({
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-75 z-20"></div>
-      <div className="z-20 w-full h-full tablet:max-h-[600px] tablet:max-w-[480px] tablet:m-auto fixed tablet:top-5 bg-white dark:bg-black tablet:rounded">
+      <div className="z-20 w-full h-full object-contain tablet:max-h-[600px] tablet:max-w-[480px] tablet:m-auto fixed tablet:top-5 bg-white dark:bg-black tablet:rounded">
         <header className="border-b-2 border-gray-700">
           <div className="p-2 space-y-2">
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 ">
               <ClearIcon
                 className="cursor-pointer"
                 onClick={() => {
@@ -52,7 +52,7 @@ export default function Listusers ({
             </label>
           </div>
         </header>
-        <ul className="w-full flex- justify-center items-center">
+        <ul className="w-full flex justify-center items-center">
           {character !== ""
             ? (
             <Fragment>

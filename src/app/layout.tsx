@@ -24,9 +24,6 @@ export default async function RootLayout ({
 
   return (
     <html lang="en">
-      {/* <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head> */}
       <body>
         <MiContextoProvider>
           <MiContextoProviderNabvar>
