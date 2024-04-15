@@ -65,6 +65,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
               />
               <span className="w-full mx-4">
                 <textarea
+                  minLength={20}
                   maxLength={225}
                   placeholder="¿Qué cuentas?"
                   name="post"
@@ -77,7 +78,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
                   }}
                   onKeyUp={textAreaAdjust}
                 />
-                <section className="absolute bottom-0 right-0 w-full flex items-end justify-end">
+                <section className="absolute bottom-0 right-0 w-full flex">
                   <ButtonPost />
                 </section>
               </span>
