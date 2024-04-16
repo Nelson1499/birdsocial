@@ -29,7 +29,9 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
     setShowPosting(false)
   }
 
-  const handleClickEnPost = (e: MouseEvent<HTMLDivElement | HTMLFormElement>) => {
+  const handleClickEnPost = (
+    e: MouseEvent<HTMLDivElement | HTMLFormElement>
+  ) => {
     e.stopPropagation()
   }
 
@@ -46,14 +48,17 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
             className="bg-zinc-900 text-white p-2 md:rounded w-full h-full md:h-[278px] md:w-[600px] relative "
             onClick={handleClickEnPost}
           >
-            <button
-              className="px-1 pb-3 cursor-pointer"
-              onClick={() => {
-                setShowPosting(false)
-              }}
-            >
-              <CloseIcon /> Salir
-            </button>
+            <section className="px-1 flex justify-between tablet:border-none border-b mb-2">
+              <button
+                className="cursor-pointer"
+                onClick={() => {
+                  setShowPosting(false)
+                }}
+              >
+                <CloseIcon /> Salir
+              </button>
+              <div className="tablet:hidden"><ButtonPost /></div>
+            </section>
             <section className="flex w-full h-full">
               <Image
                 priority={true}
@@ -78,7 +83,7 @@ export const Postform = ({ data }: { data: ObjectUser }) => {
                   }}
                   onKeyUp={textAreaAdjust}
                 />
-                <section className="absolute bottom-0 right-0 w-full flex">
+                <section className="absolute bottom-0 right-0 w-full flex invisible tablet:visible justify-end border-t text-white border-slate-400">
                   <ButtonPost />
                 </section>
               </span>
