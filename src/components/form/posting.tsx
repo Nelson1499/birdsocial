@@ -35,7 +35,7 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
           src={data.avatar_url}
           alt="perfil"
         />
-        <span className="w-full mx-4">
+        <div className="w-full">
           <textarea
             maxLength={225}
             placeholder="¿Qué cuentas?"
@@ -50,8 +50,10 @@ export const Posting = ({ data }: { data: ObjectUser }) => {
             }}
             onKeyUp={textAreaAdjust}
           />
-          <ButtonPost />
-        </span>
+          <section className="w-full flex justify-end border-t text-white border-slate-400">
+            <ButtonPost />
+          </section>
+        </div>
       </section>
     </form>
   )
