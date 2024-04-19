@@ -11,7 +11,7 @@ import FooterLogin from "@/components/footer/login/footerLogin"
 
 export const metadata: Metadata = {
   title: "Birdosocial",
-  description: "Aplicación de posteos de usuarios similar a twitter"
+  description: "Aplicación de posteos de usuarios similar a Twitter"
 }
 
 export default async function RootLayout ({
